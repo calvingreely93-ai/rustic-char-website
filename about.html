@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | Rustic Char, Lennox Head</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Big+Shoulders+Condensed:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+
+  :root{
+    --paper:#F3EBD8;
+    --paper-2:#EAE0C8;
+    --ink:#2B2118;
+    --ink-soft:#5A4B38;
+    --char:#1C140E;
+    --tomato:#D6492B;
+    --mustard:#E2A32C;
+    --parrot:#3C7A3F;
+    --teal:#2C6E6A;
+    --line:rgba(43,33,24,0.18);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Instrument Sans', sans-serif;
+    line-height:1.55;
+  }
+  .sign{font-family:'Bebas Neue', sans-serif; letter-spacing:0.02em; line-height:0.92;}
+  .cond{font-family:'Big Shoulders Condensed', sans-serif;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 26px;}
+
+  /* paper texture */
+  body::before{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:4; opacity:0.4;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+  .wrap, header, section, footer{position:relative;}
+
+  /* ---- nav ---- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--char);
+    color:var(--paper);
+    border-bottom:3px solid var(--tomato);
+  }
+  nav{max-width:1080px; margin:0 auto; padding:12px 26px; display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .brand{display:flex; align-items:center; gap:11px; flex-shrink:0;}
+  .brand img{height:40px; width:40px; border-radius:50%;}
+  .brand .name{font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.04em; color:var(--paper);}
+  .nav-links{flex:1; display:flex; justify-content:center; gap:26px; font-family:'Big Shoulders Condensed',sans-serif; font-weight:500; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.08em;}
+  .nav-links a{color:var(--paper); opacity:0.82; transition:opacity .15s, color .15s;}
+  .nav-links a:hover{opacity:1; color:var(--mustard);}
+  .nav-actions{display:flex; align-items:center; gap:12px; flex-shrink:0;}
+  .nav-call{background:var(--tomato); color:var(--paper)!important; padding:8px 16px; opacity:1!important; font-weight:600; border-radius:2px;}
+  .nav-call:hover{background:var(--mustard); color:var(--char)!important;}
+  .nav-uber{background:#06C167; color:#142328!important; padding:8px 14px; opacity:1!important; font-weight:600; border-radius:5px; display:inline-flex!important; align-items:center; gap:7px;}
+  .nav-uber svg{width:15px; height:15px; flex-shrink:0;}
+  .nav-uber:hover{background:#05a857; color:#142328!important;}
+  @media(max-width:760px){ .nav-links a:not(.nav-call){display:none;} }
+  @media(max-width:1024px){ .nav-uber{display:none!important;} }
+
+  /* mobile uber eats banner */
+  .uber-banner{display:none;}
+  @media(max-width:1024px){
+    .uber-banner{display:flex; align-items:center; justify-content:center; gap:9px; background:#3ED890; color:#142328; text-align:center; padding:13px 16px; font-family:'Big Shoulders Condensed',sans-serif; font-weight:600; font-size:0.85rem; letter-spacing:0.02em; transition:background .2s;}
+    .uber-banner svg{width:19px; height:19px; flex-shrink:0;}
+    .uber-banner .arrow{transition:transform .2s; display:inline-block;}
+    .uber-banner:hover{background:#2FC77E;}
+    .uber-banner:hover .arrow, .uber-banner:active .arrow{transform:translateX(5px);}
+  }
+
+  /* ---- hero (pinned image) ---- */
+  .hero{position:relative; height:100vh; min-height:560px; overflow:hidden;}
+  .hero-img{position:fixed; top:0; left:0; width:100%; height:100vh; object-fit:cover; z-index:-2; filter:blur(1.5px);}
+  .hero-shade{position:fixed; top:0; left:0; width:100%; height:100vh; z-index:-1; background:linear-gradient(90deg, rgba(28,20,14,0.9) 0%, rgba(28,20,14,0.66) 42%, rgba(28,20,14,0.28) 100%);}
+  .hero-inner{position:relative; z-index:2; max-width:1080px; margin:0 auto; padding:0 26px; height:100%; display:flex; flex-direction:column; justify-content:center; color:var(--paper);}
+  /* everything after hero sits on solid paper and scrolls up over the fixed image */
+  .below{position:relative; z-index:3; background:var(--paper);}
+  .kicker{display:inline-block; font-family:'Big Shoulders Condensed',sans-serif; font-weight:600; font-size:0.8rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--mustard); margin-bottom:18px; border-top:2px solid var(--mustard); padding-top:8px;}
+  .hero h1{font-family:'Bebas Neue',sans-serif; font-size:clamp(3.4rem, 9vw, 6.6rem); line-height:0.9; color:var(--paper); max-width:14ch;}
+  .hero h1 em{font-style:normal; color:var(--tomato);}
+  .hero p{margin-top:20px; font-size:1.12rem; max-width:46ch; color:rgba(243,235,216,0.92);}
+  .hero-cta{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{display:inline-flex; align-items:center; gap:9px; font-family:'Big Shoulders Condensed',sans-serif; font-weight:600; font-size:0.92rem; text-transform:uppercase; letter-spacing:0.06em; padding:14px 26px; transition:transform .15s, background .15s, color .15s;}
+  .btn-fill{background:var(--tomato); color:var(--paper);}
+  .btn-fill:hover{background:var(--mustard); color:var(--char); transform:translateY(-2px);}
+  .btn-out{border:2px solid var(--paper); color:var(--paper);}
+  .btn-out:hover{background:var(--paper); color:var(--char); transform:translateY(-2px);}
+  .hero-rating{margin-top:30px; display:inline-flex; align-items:center; gap:10px; font-family:'Big Shoulders Condensed',sans-serif; font-size:0.9rem; letter-spacing:0.03em;}
+  .hero-rating .stars{color:var(--mustard); font-size:1.05rem; letter-spacing:2px;}
+
+  /* ---- intro band ---- */
+  .band{background:var(--tomato); color:var(--paper); text-align:center; padding:16px 26px; font-family:'Big Shoulders Condensed',sans-serif; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; font-size:0.82rem;}
+  .band span{display:inline-block; margin:0 14px; opacity:0.95;}
+
+  /* ---- about row ---- */
+  .about{padding:80px 0;}
+  .about-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:54px; align-items:center;}
+  .about h2{font-family:'Bebas Neue',sans-serif; font-size:clamp(2.4rem,5vw,3.4rem); color:var(--ink); margin-bottom:18px; line-height:0.95;}
+  .about p{color:var(--ink-soft); font-size:1.06rem; margin-bottom:16px;}
+  .about .chef{font-family:'Big Shoulders Condensed',sans-serif; font-weight:600; color:var(--tomato); text-transform:uppercase; letter-spacing:0.05em; font-size:0.92rem;}
+  .about-photo{border-radius:6px; overflow:hidden; border:6px solid var(--char); transform:rotate(-1.5deg); box-shadow:0 14px 36px rgba(43,33,24,0.22);}
+  .about-photo img{width:100%; display:block;}
+  @media(max-width:820px){ .about-grid{grid-template-columns:1fr; gap:34px;} .about-photo{transform:none;} }
+
+  /* ---- menu ---- */
+  .menu{background:var(--paper-2); border-top:3px solid var(--char); border-bottom:3px solid var(--char); padding:80px 0;}
+  .menu-head{text-align:center; margin-bottom:14px;}
+  .menu-head h2{font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,4.6rem); color:var(--ink); line-height:0.9;}
+  .menu-head p{color:var(--ink-soft); margin-top:8px; font-size:1.05rem;}
+  .menu-key{display:flex; flex-wrap:wrap; justify-content:center; gap:18px; margin:26px 0 10px; font-size:0.82rem; color:var(--ink-soft);}
+  .menu-key span{display:inline-flex; align-items:center; gap:7px;}
+  .menu-note{text-align:center; max-width:520px; margin:0 auto 50px; font-size:0.76rem; color:var(--ink-soft); opacity:0.85; font-style:italic;}
+  .badge{display:inline-flex; align-items:center; justify-content:center; width:19px; height:19px; border-radius:50%; background:var(--char); color:var(--paper); font-family:'Big Shoulders Condensed',sans-serif; font-size:0.56rem; font-weight:600;}
+  .menu-grid{display:grid; grid-template-columns:1fr 1fr; gap:42px 58px;}
+  .cat h3{font-family:'Bebas Neue',sans-serif; font-size:1.65rem; color:var(--tomato); letter-spacing:0.03em; padding-bottom:9px; margin-bottom:14px; border-bottom:2px solid var(--char); display:flex; align-items:baseline; justify-content:space-between; gap:10px;}
+  .cat h3 .all{font-family:'Big Shoulders Condensed',sans-serif; font-size:0.78rem; font-weight:500; color:var(--ink-soft); letter-spacing:0.04em; text-transform:uppercase;}
+  .item{display:flex; justify-content:space-between; gap:14px; padding:7px 0; border-bottom:1px dotted var(--line);}
+  .item:last-child{border-bottom:none;}
+  .item-name{font-family:'Big Shoulders Condensed',sans-serif; font-weight:600; font-size:0.86rem; color:var(--ink);}
+  .item-tags{display:inline-flex; gap:4px; margin-left:6px; vertical-align:middle;}
+  .item-desc{font-size:0.74rem; color:var(--ink-soft); margin-top:2px;}
+  .item-price{font-family:'Big Shoulders Condensed',sans-serif; font-weight:700; color:var(--tomato); white-space:nowrap; font-size:0.86rem;}
+  .item-price .sub{font-weight:400; font-size:0.78rem; color:var(--ink-soft);}
+  @media(max-width:720px){ .menu-grid{grid-template-columns:1fr; gap:38px;} }
+
+  /* photo strip */
+  .strip{display:grid; grid-template-columns:1fr 1fr; gap:0;}
+  .strip img{width:100%; height:340px; object-fit:cover; display:block;}
+  @media(max-width:620px){ .strip{grid-template-columns:1fr;} .strip img{height:260px;} }
+
+  /* teaser gallery (before menu) */
+  .teaser{padding:46px 0 24px;}
+  .teaser-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:10px;}
+  .teaser-cell{height:150px; overflow:hidden; border-radius:5px; border:2px solid var(--char); flex-shrink:0;}
+  .teaser-cell img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s;}
+  .teaser-cell:hover img{transform:scale(1.06);}
+  @media(max-width:720px){ .teaser-grid{grid-template-columns:repeat(2,1fr);} .teaser-cell{height:160px;} }
+
+  /* instagram feed spot (static stand-in, see HTML comment for live setup) */
+  .igfeed{background:var(--char); color:var(--paper); padding:70px 0; text-align:center;}
+  .igfeed-head h2{font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,5vw,3rem); color:var(--paper);}
+  .igfeed-head p{font-family:'Big Shoulders Condensed',sans-serif; letter-spacing:0.05em; text-transform:uppercase; font-size:0.82rem; color:var(--mustard); margin-top:6px; margin-bottom:34px;}
+  .igfeed-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:4px; max-width:760px; margin:0 auto;}
+  .igfeed-grid a{display:block; aspect-ratio:1/1; overflow:hidden; position:relative;}
+  .igfeed-grid img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .3s;}
+  .igfeed-grid a:hover img{transform:scale(1.06);}
+  .igfeed-btn{margin-top:34px; display:inline-flex;}
+  @media(max-width:560px){ .igfeed-grid{grid-template-columns:repeat(2,1fr); max-width:360px;} }
+  /* ---- hours + contact ---- */
+  .visit{padding:80px 0;}
+  .visit-grid{display:grid; grid-template-columns:1fr 1fr; gap:34px;}
+  .card{background:var(--paper); border:2px solid var(--char); border-radius:6px; padding:32px;}
+  .card h3{font-family:'Bebas Neue',sans-serif; font-size:1.9rem; color:var(--ink); margin-bottom:6px;}
+  .card .note{font-family:'Big Shoulders Condensed',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--tomato); margin-bottom:18px; font-weight:600;}
+  .hrow{display:flex; justify-content:space-between; padding:9px 0; border-bottom:1px solid var(--line); font-size:0.96rem;}
+  .hrow:last-child{border-bottom:none;}
+  .hrow .day{font-family:'Big Shoulders Condensed',sans-serif; font-weight:600;}
+  .hrow.shut{color:var(--ink-soft);}
+  .hrow.shut .time{color:var(--tomato); font-weight:600; font-family:'Big Shoulders Condensed',sans-serif; font-size:0.84rem; text-transform:uppercase; letter-spacing:0.04em;}
+  .crow{display:flex; align-items:center; gap:13px; padding:13px 0; border-bottom:1px solid var(--line);}
+  .crow:last-child{border-bottom:none;}
+  .crow img.ic{width:26px; height:26px; object-fit:contain;}
+  .crow .ic-emoji{width:34px; height:34px; border-radius:50%; background:var(--char); color:var(--paper); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .crow .ic-emoji img, .fsoc .em img{width:17px; height:17px; object-fit:contain;}
+  .crow a, .crow span{font-size:1rem;}
+  .contact-cta{margin-top:22px;}
+  .contact-cta .btn{width:100%; justify-content:center; background:var(--tomato); color:var(--paper);}
+  .contact-cta .btn:hover{background:var(--char);}
+  @media(max-width:760px){ .visit-grid{grid-template-columns:1fr;} }
+
+  /* ---- reviews ---- */
+  .reviews{background:var(--char); color:var(--paper); padding:78px 0;}
+  .reviews h2{font-family:'Bebas Neue',sans-serif; font-size:clamp(2.4rem,5vw,3.4rem); text-align:center; margin-bottom:8px;}
+  .reviews .sub{text-align:center; color:rgba(243,235,216,0.7); margin-bottom:46px; font-family:'Big Shoulders Condensed',sans-serif; letter-spacing:0.05em; text-transform:uppercase; font-size:0.82rem;}
+  .rev-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .rev{background:rgba(243,235,216,0.05); border:1px solid rgba(243,235,216,0.15); border-radius:6px; padding:24px;}
+  .rev .stars{color:var(--mustard); letter-spacing:2px; margin-bottom:12px;}
+  .rev p{color:rgba(243,235,216,0.9); font-size:0.95rem; margin-bottom:14px;}
+  .rev .who{font-family:'Big Shoulders Condensed',sans-serif; font-weight:600; font-size:0.9rem;}
+  .rev .meta{font-size:0.76rem; color:rgba(243,235,216,0.55);}
+  @media(max-width:820px){ .rev-grid{grid-template-columns:1fr;} }
+
+  /* ---- footer ---- */
+  footer{background:var(--paper-2); padding:48px 0 34px; text-align:center; border-top:3px solid var(--tomato);}
+  footer .flogo{height:60px; width:60px; border-radius:50%; margin:0 auto 14px; display:block;}
+  footer .ftag{font-family:'Bebas Neue',sans-serif; font-size:1.5rem; color:var(--ink); letter-spacing:0.04em; margin-bottom:6px;}
+  footer .faddr{font-size:0.92rem; color:var(--ink-soft); margin-bottom:18px;}
+  .fsoc{display:flex; justify-content:center; gap:16px; margin-bottom:20px;}
+  .fsoc a{display:flex; align-items:center; justify-content:center;}
+  .fsoc img{width:30px; height:30px; object-fit:contain;}
+  .fsoc .em{width:38px; height:38px; border-radius:50%; background:var(--char); color:var(--paper); display:flex; align-items:center; justify-content:center;}
+  footer .fine{font-size:0.78rem; color:var(--ink-soft); opacity:0.7;}
+  footer .credit{font-size:0.92rem; color:var(--ink-soft); opacity:0.6; margin-top:10px;}
+
+  ::selection{background:var(--tomato); color:var(--paper);}
+  @media(prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+
+
+  /* flavour wheel */
+  .wheel{padding:64px 0 70px;}
+  .wheel-head{text-align:center; margin-bottom:30px;}
+  .wheel-head h2{font-size:clamp(2.6rem,6vw,3.6rem); color:var(--ink);}
+  .wheel-head p{font-family:'Big Shoulders Condensed',sans-serif; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--tomato); margin-top:6px; font-weight:600;}
+
+  .wheel-stage{position:relative; width:340px; max-width:100%; height:340px; margin:0 auto; display:flex; align-items:center; justify-content:center;}
+  .wheel-ring{position:relative; width:100%; height:100%;}
+
+  .wheel-float{position:absolute; top:-6px; right:2px; width:40px; height:40px; filter:drop-shadow(0 10px 16px rgba(43,33,24,0.28)); animation:wheelFloat 4.5s ease-in-out infinite; cursor:pointer; display:block; transition:filter .2s;}
+  .wheel-float:hover{filter:drop-shadow(0 14px 20px rgba(43,33,24,0.38));}
+  .wheel-float svg{width:100%; height:100%; display:block;}
+  @keyframes wheelFloat{0%,100%{transform:translateY(0);} 50%{transform:translateY(-14px);}}
+  @media(min-width:600px){ .wheel-float{top:-10px; right:-16px; width:48px; height:48px;} }
+  @media(min-width:1024px){ .wheel-float{top:14%; right:-130px; width:60px; height:60px;} }
+
+  .wheel-item{position:absolute; top:50%; left:50%; width:104px; height:104px; margin:-52px 0 0 -52px; padding:0; border:none; background:none; cursor:pointer; transform-origin:center center; transform:rotate(var(--a,0deg)) translateY(var(--r,-118px)) rotate(calc(var(--a,0deg) * -1)) scale(var(--s,1)); transition:transform .55s cubic-bezier(.4,0,.2,1), opacity .4s, filter .4s; opacity:.55; filter:grayscale(.15); z-index:1;}
+  .wheel-item img{width:100%; height:100%; object-fit:contain; display:block; filter:drop-shadow(0 6px 10px rgba(43,33,24,0.22));}
+  .wheel-item:nth-child(1) img, .wheel-item:nth-child(2) img, .wheel-item:nth-child(3) img{transform:scale(0.8);}
+  .wheel-item.is-active{opacity:1; filter:none; z-index:3;}
+  .wheel-item:not(.is-active):hover{opacity:.85;}
+  .wheel-item:focus-visible{outline:2px solid var(--tomato); outline-offset:4px; border-radius:50%;}
+
+  .wheel-arrow{position:absolute; top:50%; transform:translateY(-50%); width:40px; height:40px; border-radius:50%; border:2px solid var(--char); background:var(--paper); color:var(--char); font-size:1rem; line-height:1; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .15s, color .15s;}
+  .wheel-arrow:hover{background:var(--tomato); color:var(--paper); border-color:var(--tomato);}
+  .wheel-prev{left:-52px;}
+  .wheel-next{right:-52px;}
+
+  .wheel-panel{max-width:420px; margin:28px auto 0; text-align:center;}
+  .wheel-name{font-family:'Bebas Neue',sans-serif; font-size:1.7rem; letter-spacing:0.02em; color:var(--ink); display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
+  .wheel-desc{margin-top:6px; font-size:0.9rem; color:var(--ink-soft);}
+
+  .wheel-dots{display:flex; justify-content:center; gap:9px; margin-top:20px; flex-wrap:wrap;}
+  .wheel-dot{width:9px; height:9px; border-radius:50%; border:none; padding:0; background:var(--line); cursor:pointer; transition:background .2s, transform .2s;}
+  .wheel-dot.is-active{background:var(--tomato); transform:scale(1.25);}
+
+  .wheel-cta{display:flex; justify-content:center; align-items:center; gap:14px; flex-wrap:wrap; margin-top:32px;}
+  .wheel-cta .btn-uber{background:#06C167; color:#142328;}
+  .wheel-cta .btn-uber:hover{background:#05a857; color:#142328; transform:translateY(-2px);}
+  .wheel-cta .btn-uber svg{width:16px; height:16px;}
+  .wheel-cta .btn-out-dark{border:2px solid var(--char); color:var(--char);}
+  .wheel-cta .btn-out-dark:hover{background:var(--char); color:var(--paper); transform:translateY(-2px);}
+
+  @media(max-width:720px){
+    .wheel-stage{width:240px; height:240px;}
+    .wheel-item{width:76px; height:76px; margin:-38px 0 0 -38px;}
+    .wheel-prev{left:-46px;}
+    .wheel-next{right:-46px;}
+    .wheel-arrow{width:34px; height:34px; font-size:0.85rem;}
+  }
+</style>
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html" class="brand" style="text-decoration:none;">
+      <img src="assets/logo.webp" alt="Rustic Char" width="120" height="120" decoding="async">
+      <span class="name">Rustic Char</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#menu">Menu</a>
+      <a href="index.html#visit">Hours</a>
+      <a href="index.html#contact">Find Us</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a href="about.html">About Us</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://www.ubereats.com/au/store/rustic-char-lennox-head/xNy7I_s9UMS23CQCAHFG3Q?surfaceName=" target="_blank" rel="noopener" class="nav-uber"><svg viewBox="0 0 160.37 160.37" xmlns="http://www.w3.org/2000/svg"><rect width="160.37" height="160.37" rx="31.59" fill="#142328"/><path d="M76.86 107.45a8.33 8.33 0 1 0-8.33 8.23 8.22 8.22 0 0 0 8.33-8.23M83.66 94v27h-6.93v-2.43a13.66 13.66 0 0 1-8.73 3.04 14.17 14.17 0 1 1 0-28.33 13.72 13.72 0 0 1 8.77 3.12V94Zm23 20.84h-5.21c-1.59 0-2.61-.69-2.61-2.12v-12.64h7.82V94h-7.79v-7.7h-7V94h-5.26v6.11h5.27v14.35c0 3.62 2.61 6.49 7.31 6.49h7.5Zm15.79 6.8c8 0 12.52-3.74 12.52-8.92 0-3.68-2.67-6.43-8.26-7.61l-5.91-1.19c-3.43-.62-4.51-1.25-4.51-2.49 0-1.63 1.65-2.63 4.7-2.63 3.3 0 5.72.88 6.42 3.87h6.93c-.39-5.61-4.52-9.36-12.91-9.36-7.24 0-12.33 2.94-12.33 8.61 0 3.93 2.8 6.49 8.84 7.74l6.61 1.5c2.6.5 3.3 1.18 3.3 2.24 0 1.69-2 2.75-5.15 2.75-4 0-6.29-.87-7.18-3.87h-7c1 5.62 5.28 9.36 13.92 9.36M25.38 84.43h26.13v6.23H32.44v8.93H51v6H32.44v9h19.07v6.24H25.38Z" fill="#06c167"/><path d="M134.37 52.81v-4.9h-1.86A7.28 7.28 0 0 0 126 51.4v-3.28h-5.31v26.59h5.36V59.59c0-4.12 2.55-6.78 6.06-6.78ZM95.81 59a8.42 8.42 0 0 1 16.52 0Zm8.39-11.4a13.8 13.8 0 0 0-13.92 13.81c0 7.93 6.27 13.87 14.4 13.87a14.26 14.26 0 0 0 11.68-5.68l-3.88-2.82a9.36 9.36 0 0 1-7.8 3.92 9 9 0 0 1-9-7.56h22v-1.73c0-7.92-5.73-13.81-13.54-13.81M73.56 70.7a9.23 9.23 0 1 1 9.29-9.23 9.25 9.25 0 0 1-9.29 9.23M59 74.71h5.31v-3.34a13.66 13.66 0 0 0 9.67 4 13.9 13.9 0 1 0 0-27.79 13.55 13.55 0 0 0-9.62 4V38.21H59Zm-18.9-4.28c5.15 0 9.13-3.91 9.13-9.69V38.21h5.58v36.5h-5.53v-3.39a13.54 13.54 0 0 1-9.82 4c-8 0-14.08-5.69-14.08-14.29V38.21H31v22.53c0 5.89 3.93 9.69 9.14 9.69" fill="#f6f0ea"/></svg>Order on Uber Eats</a>
+      <a href="tel:0493192496" class="nav-call">Call to Order</a>
+    </div>
+  </nav>
+</header>
+
+
+<section class="about" id="about-content">
+  <div class="wrap">
+    <div class="about-head" style="text-align:center; max-width:640px; margin:0 auto 44px;">
+      <span class="kicker" style="color:var(--tomato); border-top-color:var(--tomato);">Our Story</span>
+      <h2 class="sign" style="font-size:clamp(2.6rem,6vw,3.8rem); color:var(--ink); margin-top:14px;">About Us</h2>
+    </div>
+
+    <div class="about-photo-wrap" style="max-width:520px; margin:0 auto 40px;">
+      <div class="about-photo">
+<img src="assets/about-team.webp" alt="Rustic Char team" style="width:100%; display:block; border-radius:6px;" width="900" height="675" decoding="async" loading="lazy">
+      </div>
+    </div>
+
+    <div style="max-width:640px; margin:0 auto; text-align:center;">
+      <p style="color:var(--ink-soft); font-size:1.06rem; margin-bottom:16px;">
+        [Placeholder copy: waiting to hear back on what you'd like this section to say. This could cover how Rustic Char started, who's behind the counter, and what makes the food special.]
+      </p>
+      <p class="chef" style="font-family:'Big Shoulders Condensed',sans-serif; font-weight:600; color:var(--tomato); text-transform:uppercase; letter-spacing:0.05em; font-size:0.92rem;">Rustic Char &middot; Lennox Head</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img class="flogo" src="assets/logo.webp" alt="Rustic Char" width="120" height="120" decoding="async" loading="lazy">
+    <div class="ftag sign">Rustic Char</div>
+    <div class="faddr">56 Ballina St, Lennox Head NSW 2478</div>
+    <div class="fsoc">
+      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener" aria-label="Instagram"><span class="em"><svg width="17" height="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></span></a>
+      <a href="tel:0493192496" aria-label="Call"><span class="em">&#9742;</span></a>
+      <a href="mailto:rusticchar2478@gmail.com" aria-label="Email"><span class="em"><svg width="17" height="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#F3EBD8"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></span></a>
+    </div>
+    <div class="fine">Creole Chicken Takeaway &middot; Locally sourced, made in house</div>
+    <div class="credit">Website by JT Studios</div>
+  </div>
+</footer>
+
+</body>
+</html>

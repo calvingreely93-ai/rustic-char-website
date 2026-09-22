@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# Screen recordings / scratch captures, if any land here
+*.mov
+*.MOV
