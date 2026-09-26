@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rusticchar.com.au/sitemap.xml
