@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(find \"/Users/calvingreely/Desktop\" -maxdepth 3 -iname \"*rustic*\" 2>/dev/null)",
-      "Bash(osascript -e 'tell application \"Calendar\" to get name of every calendar')"
-    ]
-  }
-}

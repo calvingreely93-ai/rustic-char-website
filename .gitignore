@@ -4,3 +4,7 @@
 # Screen recordings / scratch captures, if any land here
 *.mov
 *.MOV
+
+# local tooling and backups never go live
+.claude/
+*.backup*
