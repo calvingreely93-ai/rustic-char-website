@@ -1,0 +1,11 @@
+// Cloudflare Workers config: a plain static site, no build step.
+// Every file in this folder is served as-is (minus .assetsignore);
+// _headers applies the security headers.
+{
+  "name": "rustic-char-website",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
