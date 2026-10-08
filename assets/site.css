@@ -170,9 +170,11 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .hero-meta{margin-top:clamp(44px, 7vh, 80px); padding-top:16px; border-top:1px solid rgba(243,235,216,0.2); display:flex; flex-wrap:nowrap; align-items:center; gap:10px 28px; font-size:0.9rem; color:rgba(243,235,216,0.88);}
 .hero-rating{display:inline-flex; align-items:center; gap:10px;}
 .hero-rating .stars{color:var(--paper); letter-spacing:2px;}
-/* open status: always two lines, "We're open" with the dot, then "until 7pm" underneath */
-.hero .open-status{margin:0; align-items:flex-start; text-align:left; color:rgba(243,235,216,0.92);}
-.hero .open-status::before{margin-top:5px;}
+/* open status: always exactly two lines, never wrapping:
+   (dot) We're open
+   until 7pm                                       */
+.hero .open-status{display:block; flex-shrink:0; margin:0; text-align:left; white-space:nowrap; color:rgba(243,235,216,0.92);}
+.hero .open-status::before{display:inline-block; width:9px; height:9px; margin-right:9px; vertical-align:1px;}
 .hero .os-sep{display:none;}
 .hero .os-b{display:block; margin-top:2px; color:rgba(243,235,216,0.75);}
 .hero .open-status.is-open::before{background:#7BC26A; box-shadow:0 0 0 4px rgba(123,194,106,0.25);}
@@ -205,8 +207,10 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
   .hero-rating .u-link::after, .hero-rating .r-from{display:none;}
   .hero-rating .stars{letter-spacing:1px;}
   .hero-rating .r-score{font-weight:600; color:var(--paper);}
-  .hero-rating .r-count{grid-column:1 / -1; white-space:nowrap;}
-  .hero .open-status{gap:8px; font-size:0.7rem; letter-spacing:0.12em;}
+  .hero-rating{min-width:0;}
+  .hero-rating .r-count{grid-column:1 / -1;}
+  .hero .open-status{font-size:0.7rem; letter-spacing:0.12em;}
+  .hero .open-status::before{margin-right:8px;}
   .hero-cta{margin-bottom:32px;} /* always a clear gap above the rating line */
 }
 /* short phones (iPhone SE size): start a little higher so the rating still fits on screen */
