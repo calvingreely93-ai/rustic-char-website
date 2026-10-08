@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rustic Char | Creole Chicken Takeaway, Lennox Head</title>
-<meta name="description" content="French Caribbean street food meets modern Australian cuisine. Creole chicken, burgers, rolls and curry bowls, made in house daily at 56 Ballina St, Lennox Head.">
+<meta name="description" content="Creole chicken rolls and burgers, char-grilled and made in house. Rustic Char, 56 Ballina St, Lennox Head. Order online or call for takeaway.">
+<link rel="canonical" href="https://rusticchar.com.au/">
 <meta property="og:type" content="restaurant">
 <meta property="og:site_name" content="Rustic Char">
 <meta property="og:url" content="https://rusticchar.com.au/">
 <meta property="og:title" content="Rustic Char | Creole Chicken Takeaway, Lennox Head">
-<meta property="og:description" content="French Caribbean street food meets modern Australian cuisine, made in house daily in Lennox Head.">
+<meta property="og:description" content="Creole chicken rolls and burgers, char-grilled and made in house in Lennox Head.">
 <meta property="og:image" content="https://rusticchar.com.au/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -17,452 +18,17 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Outfit:wght@400;500;600;700;900&display=swap">
-<style>
-/* Rustic Char - shared styles
-   Layout language: giant crushed display type, three calm colour bands (cream, sage, peach)
-   between a dark header/hero and footer, soft filled cards, one corner radius, slightly rounded controls.
-   Colours - the owner's brief: "green as the background, white, a hint of orange".
-   Backgrounds are only sage or white (plus the tile-black bar/hero/footer). ONE orange (--tomato,
-   the burnt orange of the logo lettering) for accents only. Don't add other colours.
-   Type - three fonts:
-     1. titles        Outfit 900, uppercase          (.sign, wordmark; every section title is --h-section)
-     2. text, UI and small labels   Outfit 500-700   (labels = --label: uppercase, tracked out)
-     3. accent words  Instrument Serif italic, only ever in orange (--tomato)
-   Change brand colours in :root only. */
-:root{
-  --ink:#1E201C;           /* tile black: text, outlines, primary buttons */
-  --ink-rgb:30,32,28;
-  --ink-soft:#4B4D46;      /* secondary text, 6:1+ on every band */
-  --white:#FFFFFF;
-  --paper:#FFFBF6;         /* every "white" background: the faintest warm tint, barely there */
-  --sage-wash:#BFCDB2;     /* the green background bands */
-  --sage-soft:#E3EADC;     /* light green fills inside white sections */
-  --stone:#D9D5CF;         /* neutral interlude bands */
-  --saffron-wash:#F6DDB4;  /* warm bands */
-  --saffron:#DF912E;       /* sticker colour, never a button fill */
-  --tomato:#B85E2E;        /* the one orange: the logo's burnt orange (4.5:1 on white). Accents only */
-  --sage:#8A9C84;
-  --forest:#3F5139;
-  --bar:#1B221C;           /* header + footer: ink with the faintest hint of green */
-  --oak:#856D51;
-  --line:1px solid var(--ink);
-  --display:'Outfit', system-ui, sans-serif;
-  --body:'Outfit', system-ui, sans-serif;
-  --label:var(--body);     /* small uppercase labels */
-  --serif:'Instrument Serif', Georgia, serif;
-  --r-card:14px;           /* the one radius for every card and photo */
-  --lift:0 1px 2px rgba(30,32,28,0.05), 0 10px 28px rgba(30,32,28,0.07);   /* soft filled cards */
-  --h-section:clamp(2.3rem, 5vw, 4.2rem);   /* every section title */
-  --uber:var(--sage-wash);  /* Uber Eats buttons: the site's green, dark text */
-  --ease:cubic-bezier(.2,.7,.2,1);
-  --gutter:clamp(20px, 4vw, 64px);
-  --section:clamp(80px, 9vw, 128px);   /* top + bottom breathing room for every band */
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{background:var(--paper); color:var(--ink); font-family:var(--body); font-size:17px; line-height:1.6; letter-spacing:-0.01em; -webkit-font-smoothing:antialiased;}
-a{color:inherit; text-decoration:none;}
-img{max-width:100%;}
-.wrap{max-width:1440px; margin:0 auto; padding:0 var(--gutter);}
-section, footer{position:relative;}
-section[id], #contact{scroll-margin-top:84px;}
-:focus-visible{outline:2px solid var(--ink); outline-offset:3px;}
-.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;}
-
-/* ---- type roles ---- */
-.sign, .display{font-family:var(--display); font-weight:900; text-transform:uppercase; line-height:0.84; letter-spacing:-0.03em; text-wrap:balance;}
-.sign em, .display em{font-family:var(--serif); font-style:italic; font-weight:400; text-transform:none; letter-spacing:-0.01em; color:var(--tomato);}
-.label, .eyebrow, .kicker{display:inline-block; font-family:var(--label); font-weight:700; font-size:0.78rem; letter-spacing:0.09em; text-transform:uppercase; color:var(--ink);}
-
-/* ---- buttons: ink fill (primary), outlined white (secondary), slightly rounded ---- */
-.btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 26px; border:var(--line); border-radius:8px; font-family:var(--body); font-weight:700; font-size:0.92rem; letter-spacing:0.03em; text-transform:uppercase; cursor:pointer; transition:background .2s, color .2s, transform .2s var(--ease);}
-.btn:hover{transform:translateY(-2px);}
-.btn:active{transform:scale(0.97);}
-.btn-fill, .btn-dark{background:var(--ink); color:var(--white);}
-.btn-fill:hover, .btn-dark:hover{background:var(--tomato); border-color:var(--tomato); color:var(--white);}
-.btn-ghost, .btn-out{background:var(--paper); color:var(--ink);}
-.btn-ghost:hover, .btn-out:hover{background:var(--ink); color:var(--white);}
-
-/* ---- mobile uber eats strip ---- */
-.uber-banner{display:none;}
-@media(max-width:1024px){
-  .uber-banner{display:flex; align-items:center; justify-content:center; gap:9px; background:var(--uber); color:var(--ink); padding:11px 16px; font-weight:700; font-size:0.8rem; letter-spacing:0.04em; text-transform:uppercase;}
-  .uber-banner svg{width:19px; height:19px; flex-shrink:0;}
-  .uber-banner .arrow{transition:transform .25s cubic-bezier(.32,.72,0,1); display:inline-block;}
-  .uber-banner:hover .arrow{transform:translateX(5px);}
-}
-
-/* ---- header: solid ink bar; on phones the links drop down as a frosted sheet ---- */
-header{position:sticky; top:0; z-index:50; background:var(--bar); color:var(--white); border-radius:0;}
-nav{position:relative; max-width:1400px; min-height:68px; margin:0 auto; padding:12px var(--gutter); display:flex; align-items:center; justify-content:space-between; gap:28px;}
-.brand{display:flex; align-items:center; gap:11px; flex-shrink:0;}
-.brand img{height:40px; width:40px; border-radius:50%; background:var(--paper);}
-.brand .name{font-family:var(--display); font-weight:900; font-size:1.3rem; line-height:1; letter-spacing:-0.03em; color:var(--white); text-transform:uppercase;}
-.nav-links{flex:1; display:flex; justify-content:center; gap:8px;}
-.nav-links > a{position:relative; padding:10px 12px; font-weight:600; font-size:0.8rem; letter-spacing:0.05em; text-transform:uppercase; color:rgba(255,255,255,0.76); transition:color .15s;}
-.nav-links > a::after{content:''; position:absolute; left:12px; right:12px; bottom:4px; height:2px; background:var(--tomato); transform:scaleX(0); transform-origin:left; transition:transform .35s cubic-bezier(.32,.72,0,1);}
-.nav-links > a:hover, .nav-links > a[aria-current="page"]{color:var(--white);}
-.nav-links > a:hover::after, .nav-links > a[aria-current="page"]::after{transform:scaleX(1);}
-.nav-extra{display:none;}
-.nav-actions{display:flex; align-items:center; gap:10px; flex-shrink:0;}
-.nav-call, .nav-uber{display:inline-flex; align-items:center; gap:8px; min-height:40px; padding:0 16px; border-radius:8px; font-weight:700; font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase; white-space:nowrap; transition:background .15s, transform .1s ease-out;}
-.nav-call:active, .nav-uber:active{transform:scale(0.97);}
-.nav-call{background:var(--tomato); color:var(--white);}
-.nav-call:hover{background:#9C4E25;}
-.nav-uber{background:var(--uber); color:var(--ink);}
-.nav-uber:hover{background:var(--white);}
-.nav-uber svg{width:16px; height:16px; flex-shrink:0;}
-.nav-toggle{display:none; position:relative; width:42px; height:42px; border:1px solid rgba(255,255,255,0.28); border-radius:8px; background:transparent; color:var(--white); cursor:pointer; flex-shrink:0; transition:background .2s, transform .1s ease-out;}
-.nav-toggle:active{transform:scale(0.94);}
-.nav-toggle span{position:absolute; left:50%; top:50%; width:18px; height:2px; margin:-1px 0 0 -9px; border-radius:2px; background:currentColor; transition:transform .45s cubic-bezier(.32,.72,0,1);}
-.nav-toggle span:first-child{transform:translateY(-4px);}
-.nav-toggle span:last-child{transform:translateY(4px);}
-.nav-toggle[aria-expanded="true"]{background:rgba(255,255,255,0.1);}
-.nav-toggle[aria-expanded="true"] span:first-child{transform:rotate(45deg);}
-.nav-toggle[aria-expanded="true"] span:last-child{transform:rotate(-45deg);}
-.nav-scrim{display:none;}
-@media(max-width:1100px){ .nav-uber{display:none;} }
-/* home page: the hero already has a "Call to order" button, so the header's copy
-   waits until the hero has scrolled away, then fades in (class set by script) */
-header.over-hero .nav-call{opacity:0; visibility:hidden; transform:translateY(-4px); pointer-events:none;}
-header .nav-call{transition:opacity .35s ease, transform .45s cubic-bezier(.32,.72,0,1), visibility 0s, background .15s;}
-header.over-hero .nav-call{transition:opacity .2s ease, transform .2s ease, visibility 0s linear .2s, background .15s;}
-@media(max-width:900px){
-  nav{min-height:64px; padding:10px var(--gutter); gap:12px;}
-  .nav-toggle{display:inline-flex;}
-  .nav-call{padding:0 14px; font-size:0.74rem;}
-  /* the sheet: anchored under the bar, frosted ink, springs down from the top edge */
-  .nav-links{position:absolute; top:100%; left:0; right:0; flex-direction:column; justify-content:flex-start; gap:0; padding:6px var(--gutter) 24px; background:rgba(27,34,28,0.88); -webkit-backdrop-filter:blur(24px) saturate(170%); backdrop-filter:blur(24px) saturate(170%); border-top:1px solid rgba(255,255,255,0.08); border-radius:0; box-shadow:0 30px 60px rgba(0,0,0,0.28); transform-origin:top center; opacity:0; visibility:hidden; transform:translateY(-12px) scale(0.98); transition:opacity .2s ease, transform .3s cubic-bezier(.32,.72,0,1), visibility 0s linear .3s;}
-  .nav-links.is-open{opacity:1; visibility:visible; transform:none; transition:opacity .25s ease, transform .55s cubic-bezier(.32,.72,0,1), visibility 0s;}
-  .nav-links > a{display:flex; align-items:center; justify-content:space-between; padding:18px 2px; font-family:var(--display); font-weight:900; font-size:1.75rem; line-height:1; letter-spacing:-0.02em; color:var(--white); border-bottom:1px solid rgba(255,255,255,0.1); opacity:0; transform:translateY(-8px); transition:opacity .15s ease, transform .15s ease;}
-  .nav-links > a::after{position:static; content:'\2192'; height:auto; background:none; font-family:var(--body); font-weight:500; font-size:1.2rem; opacity:0.4; transform:translateX(-6px); transition:transform .35s cubic-bezier(.32,.72,0,1), opacity .2s;}
-  .nav-links > a:hover::after, .nav-links > a:focus-visible::after{opacity:1; transform:none;}
-  .nav-links > a[aria-current="page"]{color:var(--tomato);}
-  .nav-links.is-open > a{opacity:1; transform:none; transition:opacity .35s ease, transform .55s cubic-bezier(.32,.72,0,1);}
-  .nav-links.is-open > a:nth-child(1){transition-delay:.03s;}
-  .nav-links.is-open > a:nth-child(2){transition-delay:.06s;}
-  .nav-links.is-open > a:nth-child(3){transition-delay:.09s;}
-  .nav-links.is-open > a:nth-child(4){transition-delay:.12s;}
-  .nav-links.is-open > a:nth-child(5){transition-delay:.15s;}
-  .nav-links.is-open > a:nth-child(6){transition-delay:.18s;}
-  .nav-links > a:active{opacity:0.55; transition:none;}
-  .nav-extra{display:flex; flex-direction:column; gap:14px; padding-top:20px; opacity:0; transition:opacity .15s ease;}
-  .nav-links.is-open .nav-extra{opacity:1; transition:opacity .4s ease .2s;}
-  .nav-extra .open-status{color:rgba(255,255,255,0.82);}
-  .nav-extra-uber{display:flex; align-items:center; justify-content:center; gap:10px; min-height:52px; border-radius:8px; background:var(--uber); color:var(--ink); font-weight:700; font-size:0.88rem; letter-spacing:0.04em; text-transform:uppercase; transition:transform .1s ease-out;}
-  .nav-extra-uber:active{transform:scale(0.98);}
-  .nav-extra-uber svg{width:20px; height:20px; flex-shrink:0;}
-  .nav-scrim{display:block; position:fixed; inset:0; z-index:40; background:rgba(20,21,18,0.42); opacity:0; visibility:hidden; transition:opacity .3s ease, visibility 0s linear .3s;}
-  .nav-scrim.is-open{opacity:1; visibility:visible; transition:opacity .35s ease, visibility 0s;}
-}
-@media(max-width:420px){ .brand{gap:8px;} .brand img{width:36px; height:36px;} .brand .name{font-size:1.1rem;} }
-@media(prefers-reduced-transparency:reduce){ .nav-links{background:var(--ink); -webkit-backdrop-filter:none; backdrop-filter:none;} }
-@media(prefers-reduced-motion:reduce){ .nav-links, .nav-links > a{transform:none!important;} }
-
-/* ---- hero: natural-colour timelapse under a black tint, wordmark + intro up top, status + actions + rating at the bottom ---- */
-.hero{position:relative; isolation:isolate; overflow:hidden; background:#16170F; color:var(--white); min-height:calc(100svh - 68px); display:flex; flex-direction:column; justify-content:space-between; gap:48px; padding:clamp(64px, 10vh, 112px) var(--gutter) clamp(32px, 4vw, 56px);}
-.hero-video{position:absolute; inset:0; z-index:-1; width:100%; height:100%; object-fit:cover; object-position:50% 45%; background:#16170F;}
-.hero::after{content:''; position:absolute; inset:0; z-index:-1; pointer-events:none;
-  /* black tint: heaviest behind the words on the left, lighter on the right so the footage still reads */
-  background:linear-gradient(90deg, rgba(14,15,12,0.74) 0%, rgba(14,15,12,0.58) 45%, rgba(14,15,12,0.42) 100%);}
-@media(max-width:700px){
-  .hero::after{background:linear-gradient(180deg, rgba(14,15,12,0.66) 0%, rgba(14,15,12,0.5) 45%, rgba(14,15,12,0.72) 100%);}
-}
-/* light type + buttons on the dark hero */
-.hero .btn-fill{background:var(--paper); border-color:var(--white); color:var(--ink);}
-.hero .btn-fill:hover{background:var(--tomato); border-color:var(--tomato); color:var(--white);}
-.hero .btn-ghost{background:transparent; border-color:rgba(255,255,255,0.75); color:var(--white);}
-.hero .btn-ghost:hover{background:var(--paper); border-color:var(--white); color:var(--ink);}
-.hero-stage{container-type:inline-size; width:100%; max-width:1600px; margin:0 auto;}
-/* descriptive headline: says what Rustic Char cooks; "Caribbean soul" in the orange accent italic
-   (a lighter tint of --tomato so it reads on the dark hero). Sized to keep status, buttons and
-   rating on a laptop's first screen. */
-.headline{font-family:var(--display); font-weight:900; text-transform:uppercase; color:var(--white); line-height:0.9; letter-spacing:-0.035em;
-  font-size:11vw; font-size:max(min(calc(100cqi / 8.2), calc((100svh - 560px) / 2.7)), calc(100cqi / 14));}
-.headline > span{display:block;}
-.headline em{font-family:var(--serif); font-style:italic; font-weight:400; text-transform:none; letter-spacing:-0.01em; color:#E08A55; font-size:1.12em;}
-/* the two palms from the logo lockup, see-through white, beside "soul" */
-.hl-palms{position:relative; display:inline-block; height:0.95em; aspect-ratio:138/163; margin-left:0.12em; vertical-align:-0.08em;}
-/* drawn bigger than its slot so it rises into the line above without spreading the lines apart */
-.hl-palms::before{content:''; position:absolute; left:0; bottom:0; height:1.3em; aspect-ratio:138/163; background:rgba(255,255,255,0.86); -webkit-mask:url(assets/palms.svg) center bottom / contain no-repeat; mask:url(assets/palms.svg) center bottom / contain no-repeat; pointer-events:none;}
-.hero-sub{max-width:40ch; margin-top:clamp(22px, 3vw, 40px); font-weight:600; font-size:clamp(1.05rem, 1.5vw, 1.35rem); line-height:1.45; letter-spacing:-0.015em;}
-.hero-foot{width:100%; max-width:1600px; margin:0 auto; display:flex; flex-direction:column; align-items:flex-start; gap:18px;}
-.hero-cta{display:flex; gap:12px; flex-wrap:wrap;}
-.hero-rating{display:inline-flex; align-items:center; gap:12px; margin-top:6px; font-weight:600; font-size:0.98rem;}
-.hero-rating .stars{color:var(--tomato); font-size:1.1rem; letter-spacing:2px;}
-@media(max-width:700px){
-  .hero-cta{width:100%;}
-  .hero-cta .btn{flex:1 1 100%;}
-}
-
-@media(max-width:900px){ .hero{padding-top:clamp(76px, 14vh, 136px);} }
-
-/* ---- open / closed status (filled in by script, Lennox Head time) ---- */
-.open-status{display:inline-flex; align-items:center; gap:9px; font-family:var(--label); font-weight:700; font-size:0.74rem; letter-spacing:0.09em; text-transform:uppercase;}
-.open-status::before{content:''; flex:0 0 9px; height:9px; border-radius:50%; background:var(--ink-soft);}
-.open-status.is-open::before{background:#1E7A45; box-shadow:0 0 0 3px rgba(30,122,69,0.25);}
-.open-status.is-closed::before{background:var(--tomato);}
-
-/* ---- promise band + lead line ---- */
-.band{background:var(--sage); color:var(--ink); padding:18px var(--gutter); display:flex; flex-wrap:wrap; justify-content:center; gap:10px 0; font-family:var(--label); font-weight:700; font-size:0.76rem; letter-spacing:0.09em; text-transform:uppercase;}
-.band span{display:inline-flex; align-items:center;}
-.band span + span::before{content:''; width:7px; height:7px; margin:0 22px; background:var(--white); transform:rotate(45deg);}
-@media(max-width:600px){ .band{gap:8px 18px;} .band span + span::before{display:none;} }
-.lead{max-width:34ch; margin:clamp(56px, 7vw, 96px) auto 0; padding:0 var(--gutter); text-align:center; font-weight:600; font-size:clamp(1.35rem, 2.7vw, 2.2rem); line-height:1.32; letter-spacing:-0.02em; text-wrap:balance;}
-.lead + .lead{margin-top:clamp(18px, 2.4vw, 28px);}
-.lead em{font-family:var(--serif); font-style:italic; font-weight:400; font-size:1.08em; letter-spacing:-0.01em; color:var(--tomato);}
-
-/* ---- horizontal scroll gallery: pinned while the page scrolls, track glides sideways ---- */
-.gallery-scroll{position:relative; padding:0; margin:64px 0 0; overflow-anchor:none; background:var(--paper);}
-.gallery-scroll-pin{position:sticky; top:42vh; height:clamp(290px, 26vw, 340px); overflow-x:auto; overflow-y:hidden; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity; display:flex; align-items:center; background:var(--paper);}
-.gallery-scroll.js-pin .gallery-scroll-pin{overflow:hidden; scroll-snap-type:none;}
-.gallery-scroll-track{display:flex; align-items:center; gap:22px; height:100%; will-change:transform;}
-.gallery-scroll-item{flex:0 0 auto; height:100%; margin:0; border-radius:var(--r-card); overflow:hidden; scroll-snap-align:start; transform-origin:center center; will-change:transform;}
-.gallery-scroll.js-pin .gallery-scroll-item{height:74%;}
-.gallery-scroll-item a{display:block; height:100%;}
-.gallery-scroll-item img{height:100%; width:auto; display:block; object-fit:cover;}
-.gallery-scroll:not(.js-pin) .gallery-scroll-item[aria-hidden]{display:none;}
-/* 9 photos on computers, 4 on phones */
-@media(max-width:900px){ .gallery-scroll-item.strip-wide{display:none;} }
-@media(prefers-reduced-motion:reduce){ .gallery-scroll{height:auto!important;} }
-
-/* ---- rolls & burgers wheel ---- */
-.wheel{background:var(--sage-wash); padding:clamp(56px, 6vw, 88px) 0 var(--section);}
-.wheel-head{text-align:center; margin-bottom:28px;}
-.wheel-head h2{font-size:var(--h-section);}
-.wheel-head p{display:inline-block; margin-top:14px; font-family:var(--label); font-weight:700; font-size:0.78rem; letter-spacing:0.09em; text-transform:uppercase;}
-.wheel-stage{position:relative; width:340px; max-width:100%; height:340px; margin:0 auto; display:flex; align-items:center; justify-content:center;}
-.wheel-ring{position:relative; width:100%; height:100%;}
-.wheel-item{position:absolute; top:50%; left:50%; width:104px; height:104px; margin:-52px 0 0 -52px; padding:0; border:none; background:none; cursor:pointer; transform-origin:center center; transform:rotate(var(--a,0deg)) translateY(var(--r,-118px)) rotate(calc(var(--a,0deg) * -1)) scale(var(--s,1)); transition:transform .55s cubic-bezier(.4,0,.2,1), opacity .4s, filter .4s; opacity:.55; filter:grayscale(.15); z-index:1;}
-.wheel-item img{width:100%; height:100%; object-fit:contain; display:block; filter:drop-shadow(0 6px 10px rgba(30,32,28,0.2));}
-.wheel-item:nth-child(1) img, .wheel-item:nth-child(2) img, .wheel-item:nth-child(3) img{transform:scale(0.8);}
-.wheel-item.is-active{opacity:1; filter:none; z-index:3;}
-.wheel-item:not(.is-active):hover{opacity:.85;}
-.wheel-item:focus-visible{outline:2px solid var(--ink); outline-offset:4px; border-radius:50%;}
-.wheel-arrow{position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:var(--line); background:var(--paper); color:var(--ink); font-size:1rem; line-height:1; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:background .2s, color .2s; z-index:4;}
-.wheel-arrow:hover{background:var(--ink); color:var(--white);}
-.wheel-prev{left:-60px;}
-.wheel-next{right:-60px;}
-.wheel-panel{max-width:460px; margin:48px auto 0; text-align:center;}
-.wheel-name{font-family:var(--display); font-weight:900; text-transform:uppercase; letter-spacing:-0.02em; line-height:0.9; font-size:clamp(1.7rem, 3vw, 2.3rem); display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
-.wheel-desc{margin-top:14px; font-size:1.02rem; color:var(--ink-soft);}
-.wheel-dots{display:flex; justify-content:center; gap:6px; margin-top:22px; flex-wrap:wrap;}
-.wheel-dot{position:relative; width:26px; height:26px; border:none; padding:0; background:none; cursor:pointer;}
-.wheel-dot::after{content:''; position:absolute; top:50%; left:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; border:var(--line); background:var(--paper); transition:background .2s, transform .2s;}
-.wheel-dot.is-active::after{background:var(--tomato); transform:scale(1.2);}
-@media(max-width:720px){
-  .wheel-stage{width:240px; height:240px;}
-  .wheel-item{width:76px; height:76px; margin:-38px 0 0 -38px;}
-  .wheel-prev{left:-52px;}
-  .wheel-next{right:-52px;}
-  .wheel-arrow{width:44px; height:44px; font-size:0.85rem;}
-}
-
-/* ---- menu: the original site's layout, in the new palette ---- */
-.menu{background:var(--paper); padding:clamp(72px, 8vw, 112px) 0; position:relative; overflow:hidden;}
-.menu::before{content:''; position:absolute; inset:0; pointer-events:none; z-index:0; opacity:0; transition:opacity .4s ease; background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%), rgba(223,145,46,0.12), transparent 70%);}
-.menu:hover::before{opacity:1;}
-.menu .wrap{position:relative; z-index:1; max-width:1280px;}
-.menu-head{text-align:center;}
-.menu-head h2{font-size:var(--h-section);}
-.menu-key{display:flex; flex-wrap:wrap; justify-content:center; gap:8px 20px; margin:20px 0 44px; font-size:0.8rem; color:var(--ink-soft);}
-.menu-key span{display:inline-flex; align-items:center; gap:7px;}
-.badge{display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; border-radius:50%; background:var(--ink); color:var(--white); font-family:var(--body); font-size:0.52rem; font-weight:700; letter-spacing:0;}
-.menu-grid{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:40px 56px; align-items:start;}
-@media(max-width:1100px){ .menu-grid{grid-template-columns:repeat(2, minmax(0, 1fr));} }
-.cat h3{font-family:var(--display); font-weight:900; font-size:1.05rem; line-height:1; letter-spacing:-0.01em; text-transform:uppercase; color:var(--forest); padding-bottom:9px; margin-bottom:4px; border-bottom:1px solid rgba(var(--ink-rgb), 0.22); display:flex; align-items:baseline; justify-content:space-between; gap:10px;}
-.cat h3 .all{font-family:var(--body); font-weight:500; font-size:0.72rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--ink-soft); display:inline-flex; align-items:center; gap:4px;}
-.item{display:flex; justify-content:space-between; align-items:baseline; gap:14px; padding:7px 0; border-bottom:1px solid rgba(var(--ink-rgb), 0.12);}
-.item:last-child{border-bottom:none;}
-.item-name{font-weight:600; font-size:0.86rem; line-height:1.35;}
-.item-tags{display:inline-flex; gap:4px; margin-left:6px; vertical-align:1px;}
-.item-desc{font-size:0.76rem; color:var(--ink-soft); margin-top:2px; line-height:1.4;}
-.item-price{font-weight:700; white-space:nowrap; font-size:0.86rem; color:var(--tomato);}
-.item-price .sub{font-weight:400; font-size:0.72rem; color:var(--ink-soft);}
-.menu-note{text-align:center; max-width:580px; margin:56px auto 0; font-size:0.82rem; line-height:1.6; font-style:italic; color:var(--ink-soft);}
-@media(max-width:760px){ .menu-grid{grid-template-columns:1fr; gap:32px;} .item-price{white-space:normal; text-align:right;} }
-@media(min-width:761px){
-  .menu-key{font-size:0.88rem; margin-bottom:52px;}
-  .badge{width:19px; height:19px; font-size:0.55rem;}
-  .cat h3{font-size:1.3rem; padding-bottom:11px;}
-  .cat h3 .all{font-size:0.8rem;}
-  .item{padding:10px 0;}
-  .item-name{font-size:1rem;}
-  .item-desc{font-size:0.86rem;}
-  .item-price{font-size:1rem;}
-  .item-price .sub{font-size:0.8rem;}
-  .menu-note{font-size:0.9rem;}
-}
-
-/* ---- catering ---- */
-.catering{background:var(--sage-wash); padding:clamp(48px, 5vw, 72px) 0; overflow:hidden;}
-.catering-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:clamp(48px, 7vw, 120px); align-items:center; max-width:1240px; margin:0 auto;}
-.catering h2{font-size:var(--h-section); margin:16px 0 22px;}
-.catering p{font-size:1.05rem; line-height:1.7; color:var(--ink-soft); max-width:46ch;}
-.catering-list{list-style:none; margin:22px 0 30px; display:flex; flex-direction:column; align-items:flex-start; gap:8px;}
-.catering-list li{display:flex; align-items:baseline; gap:12px; font-weight:500; font-size:0.98rem; line-height:1.5;}
-.catering-list b{display:none;}
-.catering-list li::before{content:''; flex:0 0 7px; height:7px; background:var(--tomato); transform:translateY(-2px) rotate(45deg);}
-.catering-cta{display:flex; gap:12px; flex-wrap:wrap;}
-.catering-photos{display:grid; grid-template-columns:1fr 1fr; gap:16px; width:100%; max-width:380px; justify-self:end;}
-.catering-photos img{width:100%; height:100%; object-fit:cover; display:block; border-radius:var(--r-card); background:var(--paper);}
-.catering-photos .tall{grid-row:span 2; aspect-ratio:3/4.4; transform:rotate(-2deg);}
-.catering-photos .sq{aspect-ratio:1/1;}
-.catering-photos .sq:nth-of-type(2){transform:rotate(2.5deg);}
-.catering-photos .sq:nth-of-type(3){transform:rotate(-1.5deg);}
-.catering-photos .m-only{display:none;}
-/* photos stay to the right of the writing on every screen size */
-@media(max-width:900px){
-  .catering-grid{grid-template-columns:minmax(0, 1fr) 31%; gap:24px; align-items:stretch;}
-  .catering h2{font-size:clamp(1.8rem, 7.4vw, 3rem); margin:16px 0 20px;}
-  .catering p{font-size:0.98rem;}
-  .catering-list{margin:20px 0 24px; gap:8px;}
-  .catering-list li{gap:10px; font-size:0.9rem;}
-  .catering-cta .btn{width:100%; min-height:48px; padding:0 14px; font-size:0.8rem;}
-  /* one column of photos that stretches to exactly the height of the writing, down to "Email an enquiry" */
-  .catering-photos{display:flex; flex-direction:column; max-width:none; justify-self:stretch; gap:12px;}
-  .catering-photos img, .catering-photos .tall, .catering-photos .sq{flex:1 1 0; min-height:0; aspect-ratio:auto;}
-  .catering-photos .m-only{display:block;}
-}
-
-/* ---- hours + contact ---- */
-.visit{background:var(--paper); padding:clamp(56px, 6vw, 88px) 0;}
-.visit-grid{display:grid; grid-template-columns:1fr; gap:clamp(14px, 2vw, 24px); max-width:760px; margin:0 auto;}
-@media(min-width:900px){ .visit-grid{grid-template-columns:1fr 1fr; max-width:1180px; align-items:start;} }
-.card{background:var(--white); border:none; box-shadow:var(--lift); border-radius:var(--r-card); padding:clamp(28px, 3.8vw, 52px);}
-.card h3{font-size:var(--h-section); margin-bottom:16px;}
-.card .note{font-family:var(--label); font-weight:700; font-size:0.74rem; letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:26px;}
-.hrow{display:flex; justify-content:space-between; align-items:center; gap:12px; padding:15px 0; border-bottom:1px dashed rgba(var(--ink-rgb), 0.28);}
-.hrow:last-child{border-bottom:none;}
-.hrow .day{font-weight:600;}
-.hrow .time{font-family:var(--label); font-weight:700; font-size:0.92rem;}
-.hrow.shut{color:var(--ink-soft);}
-.hrow.shut .time{font-weight:400;}
-.hrow.today{background:var(--sage-soft); border-radius:10px; margin:4px -14px; padding:15px 14px;}
-.today-pill{display:inline-block; margin-left:8px; padding:3px 8px; border-radius:4px; background:var(--tomato); color:var(--white); font-family:var(--label); font-weight:700; font-size:0.62rem; letter-spacing:0.09em; text-transform:uppercase; vertical-align:2px;}
-/* every contact row is one big tap target that goes straight to the phone, mail, Instagram or Maps */
-.crow{position:relative; display:flex; align-items:center; gap:16px; margin:0 -10px; padding:15px 10px; border-radius:12px; transition:background .15s, transform .1s ease-out;}
-.crow + .crow::before{content:''; position:absolute; top:0; left:68px; right:10px; border-top:1px dashed rgba(var(--ink-rgb), 0.28);}
-.crow:hover{background:rgba(191,205,178,0.28);}
-.crow:active{transform:scale(0.99); background:var(--sage-soft);}
-.crow .ic{width:44px; height:44px; flex-shrink:0; border-radius:50%; background:var(--sage-soft); display:flex; align-items:center; justify-content:center;}
-.crow .ic svg{width:18px; height:18px;}
-.crow .ctext{flex:1; min-width:0; font-size:1.02rem; overflow-wrap:anywhere;}
-.crow .go{flex-shrink:0; opacity:0.4; transition:transform .3s cubic-bezier(.32,.72,0,1), opacity .15s;}
-.crow:hover .go{opacity:1; transform:translateX(3px);}
-.card-status{margin:-6px 0 16px;}
-.contact-cta{margin-top:30px;}
-.contact-cta .btn{width:100%;}
-.d-short{display:none;}
-@media(max-width:600px){
-  .visit .card{padding:24px 18px;}
-  .hrow{padding:12px 0;}
-  .hrow.today{margin:2px -10px; padding:12px 10px;}
-  .crow{padding:12px 10px;}
-}
-
-/* ---- reviews: one-row carousel that glides on its own and loops forever; swipe, drag or use the arrows ---- */
-.reviews{background:var(--sage-wash); padding:var(--section) 0; overflow:hidden;}
-.reviews h2{font-size:var(--h-section); text-align:center;}
-.reviews .tagline{margin-top:30px; text-align:center; font-family:var(--label); font-weight:700; font-size:0.78rem; letter-spacing:0.09em; text-transform:uppercase; color:var(--ink-soft);}
-.reviews .sub{display:table; margin:12px auto 64px; font-family:var(--label); font-weight:700; font-size:0.8rem; letter-spacing:0.09em; text-transform:uppercase;}
-.rev-viewport{overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain; scrollbar-width:none; padding:4px var(--gutter) 8px; cursor:grab;}
-.rev-viewport::-webkit-scrollbar{display:none;}
-.rev-viewport.is-dragging{cursor:grabbing; user-select:none; -webkit-user-select:none;}
-.rev-track{display:grid; grid-template-rows:auto; grid-auto-flow:column; grid-auto-columns:clamp(280px, 30vw, 400px); gap:22px; width:max-content;}
-.rev{display:flex; flex-direction:column; gap:16px; background:var(--white); border:none; box-shadow:var(--lift); border-radius:var(--r-card); padding:30px 30px 26px;}
-.rev .stars{color:var(--tomato); letter-spacing:2px;}
-.rev-text{font-size:1rem; line-height:1.65; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:6; overflow:hidden;}
-.rev.is-open .rev-text{display:block;}
-.rev-more{align-self:flex-start; padding:0; border:none; background:none; color:var(--ink); font-family:var(--label); font-weight:700; font-size:0.72rem; letter-spacing:0.09em; text-transform:uppercase; text-decoration:underline; text-underline-offset:3px; cursor:pointer;}
-.rev-foot{margin-top:auto; padding-top:4px; display:flex; flex-direction:column; gap:3px;}
-.rev .who{font-weight:700;}
-.rev .meta{font-family:var(--label); font-size:0.74rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.09em;}
-.rev-controls{display:flex; justify-content:center; gap:10px; margin-top:36px;}
-.rev-arrow{width:48px; height:48px; display:flex; align-items:center; justify-content:center; border:var(--line); border-radius:8px; background:var(--paper); color:var(--ink); font-size:1rem; cursor:pointer; transition:background .15s, color .15s, transform .1s ease-out;}
-.rev-arrow:hover{background:var(--ink); color:var(--white);}
-.rev-arrow:active{transform:scale(0.94);}
-@media(max-width:600px){
-  .rev-track{grid-auto-columns:236px; gap:14px;}
-  .rev{padding:20px 20px 18px; gap:10px;}
-  .rev .stars{font-size:0.9rem;}
-  .rev-text{font-size:0.9rem; line-height:1.55; -webkit-line-clamp:5;}
-  .rev .meta{font-size:0.66rem;}
-}
-.write-review{margin-top:clamp(88px, 10vw, 128px); text-align:center;}
-.write-review h3{font-size:clamp(1.6rem, 3vw, 2.4rem); margin-bottom:18px;}
-.write-review p{font-size:1.05rem; color:var(--ink-soft); margin-bottom:32px;}
-
-/* ---- underline-on-hover link ---- */
-.u-link{position:relative; display:inline-block;}
-.u-link::after{content:''; position:absolute; left:0; right:0; bottom:-3px; height:1px; background:currentColor; transform:scaleX(0); transform-origin:right; transition:transform .28s ease;}
-.u-link:hover::after{transform:scaleX(1); transform-origin:left;}
-
-/* ---- instagram ---- */
-.igfeed{background:var(--paper); padding:var(--section) 0; text-align:center;}
-.igfeed-head h2{font-size:var(--h-section); margin-bottom:28px;}
-.ig-profile{display:inline-flex; align-items:center; gap:clamp(16px, 3vw, 32px); margin:0 auto 32px; text-align:left;}
-.ig-avatar{width:clamp(64px, 8vw, 96px); height:clamp(64px, 8vw, 96px); border-radius:50%; background:var(--paper); flex-shrink:0;}
-.ig-handle{font-weight:700; font-size:clamp(1.1rem, 1.6vw, 1.35rem);}
-.ig-stats{display:flex; flex-wrap:wrap; gap:4px 18px; margin-top:6px; font-size:0.92rem;}
-.ig-stats b{font-weight:700;}
-.ig-info, .ig-handle, .ig-bio{display:block;}
-.ig-bio{margin-top:6px; font-size:0.92rem; color:var(--ink-soft);}
-.igfeed-grid{display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; max-width:1100px; margin:0 auto;}
-.igfeed-grid a{display:block; aspect-ratio:4/5; overflow:hidden; border-radius:var(--r-card);}
-.igfeed-grid img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s var(--ease);}
-.igfeed-grid a:hover img{transform:scale(1.05);}
-.igfeed-btn{margin-top:36px; position:relative; isolation:isolate; overflow:hidden;}
-.igfeed-btn::before{content:''; position:absolute; inset:0; z-index:-1; background:linear-gradient(45deg, #F58529, #DD2A7B 50%, #8134AF 75%, #515BD4); opacity:0; transition:opacity .3s ease;}
-.igfeed-btn:hover{background:var(--ink); border-color:transparent; color:var(--white);}
-.igfeed-btn:hover::before{opacity:1;}
-@media(min-width:901px){ .igfeed-grid{grid-template-columns:repeat(8, minmax(0, 1fr)); gap:10px; max-width:960px;} }
-@media(min-width:561px) and (max-width:900px){ .igfeed-grid{max-width:520px; gap:8px;} }
-@media(max-width:560px){ .igfeed-grid{grid-template-columns:repeat(4, minmax(0, 1fr)); gap:6px; max-width:300px;} .igfeed-head h2{margin-bottom:22px;} .ig-profile{margin-bottom:24px;} .ig-stats{gap:2px 12px; font-size:0.84rem;} .igfeed-btn{margin-top:28px;} }
-
-
-/* ---- footer: closing poster ---- */
-footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px) 0 28px; overflow:hidden;}
-.foot-top{display:grid; grid-template-columns:1.3fr 1fr auto; gap:clamp(40px, 5vw, 72px); align-items:start;}
-.flogo{width:64px; height:64px; border-radius:50%; background:var(--paper); display:block; margin-bottom:20px;}
-.fdef{font-size:0.98rem; color:rgba(255,255,255,0.78); max-width:46ch;}
-.fdef span{display:block; margin-bottom:6px;}
-.fdef b{font-family:var(--label); font-weight:700; font-size:0.8rem; letter-spacing:0.09em; text-transform:uppercase; color:var(--tomato); margin-right:8px;}
-.faddr{font-size:1.02rem; line-height:1.75;}
-.faddr .label{color:var(--sage); margin-bottom:10px;}
-.faddr a:hover{text-decoration:underline; text-underline-offset:3px;}
-.fsoc{display:flex; gap:10px;}
-.fsoc a{display:flex;}
-.fsoc .em{width:48px; height:48px; border-radius:50%; border:1px solid rgba(255,255,255,0.7); display:flex; align-items:center; justify-content:center; transition:background .2s, color .2s;}
-.fsoc a:hover .em{background:var(--paper); color:var(--ink);}
-.fsoc .em svg{width:18px; height:18px;}
-.foot-fine{display:flex; justify-content:space-between; align-items:center; gap:12px 24px; flex-wrap:wrap; margin-top:44px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.22); font-family:var(--label); font-size:0.72rem; letter-spacing:0.09em; text-transform:uppercase; color:rgba(255,255,255,0.72);}
-.foot-fine{justify-content:space-between;}
-.fmerch a{color:var(--white); text-decoration:underline; text-underline-offset:3px;}
-.fmerch a:hover{color:var(--sage);}
-.credit{display:inline-flex; align-items:center; gap:10px; font-size:0.86rem;}
-.credit img{height:24px; width:auto; display:block; filter:invert(1) brightness(1.6);}
-@media(max-width:820px){ .foot-top{grid-template-columns:1fr;} }
-
-::selection{background:var(--tomato); color:var(--ink);}
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  *, *::before, *::after{transition-duration:0.01ms!important;}
-}
-
-</style>
-<link rel="preload" as="image" href="assets/video/hero-wide-poster.webp" media="(min-aspect-ratio: 4/5)" fetchpriority="high">
-<link rel="preload" as="image" href="assets/video/hero-tall-poster.webp" media="(max-aspect-ratio: 4/5)" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&display=swap">
+<link rel="stylesheet" href="assets/site.css">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
 </head>
-<body>
+<body class="has-hero">
 
-<header>
+<header class="at-hero">
   <nav>
-    <a class="brand" href="#top"><img src="assets/logo.webp" alt="Rustic Char" width="120" height="120" decoding="async"><span class="name">Rustic Char</span></a>
     <div class="nav-links" id="navLinks">
       <a href="#menu">Menu</a>
       <a href="#catering">Catering</a>
@@ -470,99 +36,69 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
       <a href="#visit">Hours</a>
       <a href="#contact">Find Us</a>
       <a href="#reviews">Reviews</a>
+      <a href="about.html">About Us</a>
       <div class="nav-extra">
-        <p class="open-status" data-open-status>Open Tue&ndash;Sat &middot; 11:30am&ndash;7pm</p>
-        <a href="https://www.ubereats.com/au/store/rustic-char-lennox-head/xNy7I_s9UMS23CQCAHFG3Q?surfaceName=" target="_blank" rel="noopener" class="nav-extra-uber"><svg viewBox="0 0 160.37 160.37" xmlns="http://www.w3.org/2000/svg"><rect width="160.37" height="160.37" rx="31.59" fill="#142328"/><path d="M76.86 107.45a8.33 8.33 0 1 0-8.33 8.23 8.22 8.22 0 0 0 8.33-8.23M83.66 94v27h-6.93v-2.43a13.66 13.66 0 0 1-8.73 3.04 14.17 14.17 0 1 1 0-28.33 13.72 13.72 0 0 1 8.77 3.12V94Zm23 20.84h-5.21c-1.59 0-2.61-.69-2.61-2.12v-12.64h7.82V94h-7.79v-7.7h-7V94h-5.26v6.11h5.27v14.35c0 3.62 2.61 6.49 7.31 6.49h7.5Zm15.79 6.8c8 0 12.52-3.74 12.52-8.92 0-3.68-2.67-6.43-8.26-7.61l-5.91-1.19c-3.43-.62-4.51-1.25-4.51-2.49 0-1.63 1.65-2.63 4.7-2.63 3.3 0 5.72.88 6.42 3.87h6.93c-.39-5.61-4.52-9.36-12.91-9.36-7.24 0-12.33 2.94-12.33 8.61 0 3.93 2.8 6.49 8.84 7.74l6.61 1.5c2.6.5 3.3 1.18 3.3 2.24 0 1.69-2 2.75-5.15 2.75-4 0-6.29-.87-7.18-3.87h-7c1 5.62 5.28 9.36 13.92 9.36M25.38 84.43h26.13v6.23H32.44v8.93H51v6H32.44v9h19.07v6.24H25.38Z" fill="#06c167"/><path d="M134.37 52.81v-4.9h-1.86A7.28 7.28 0 0 0 126 51.4v-3.28h-5.31v26.59h5.36V59.59c0-4.12 2.55-6.78 6.06-6.78ZM95.81 59a8.42 8.42 0 0 1 16.52 0Zm8.39-11.4a13.8 13.8 0 0 0-13.92 13.81c0 7.93 6.27 13.87 14.4 13.87a14.26 14.26 0 0 0 11.68-5.68l-3.88-2.82a9.36 9.36 0 0 1-7.8 3.92 9 9 0 0 1-9-7.56h22v-1.73c0-7.92-5.73-13.81-13.54-13.81M73.56 70.7a9.23 9.23 0 1 1 9.29-9.23 9.25 9.25 0 0 1-9.29 9.23M59 74.71h5.31v-3.34a13.66 13.66 0 0 0 9.67 4 13.9 13.9 0 1 0 0-27.79 13.55 13.55 0 0 0-9.62 4V38.21H59Zm-18.9-4.28c5.15 0 9.13-3.91 9.13-9.69V38.21h5.58v36.5h-5.53v-3.39a13.54 13.54 0 0 1-9.82 4c-8 0-14.08-5.69-14.08-14.29V38.21H31v22.53c0 5.89 3.93 9.69 9.14 9.69" fill="#f6f0ea"/></svg>Order on Uber Eats</a>
+        <a href="https://www.ubereats.com/au/store/rustic-char-lennox-head/xNy7I_s9UMS23CQCAHFG3Q?surfaceName=" target="_blank" rel="noopener" class="nav-extra-uber"><svg viewBox="0 0 160.37 160.37" xmlns="http://www.w3.org/2000/svg"><rect width="160.37" height="160.37" rx="31.59" fill="#142328"/><path d="M76.86 107.45a8.33 8.33 0 1 0-8.33 8.23 8.22 8.22 0 0 0 8.33-8.23M83.66 94v27h-6.93v-2.43a13.66 13.66 0 0 1-8.73 3.04 14.17 14.17 0 1 1 0-28.33 13.72 13.72 0 0 1 8.77 3.12V94Zm23 20.84h-5.21c-1.59 0-2.61-.69-2.61-2.12v-12.64h7.82V94h-7.79v-7.7h-7V94h-5.26v6.11h5.27v14.35c0 3.62 2.61 6.49 7.31 6.49h7.5Zm15.79 6.8c8 0 12.52-3.74 12.52-8.92 0-3.68-2.67-6.43-8.26-7.61l-5.91-1.19c-3.43-.62-4.51-1.25-4.51-2.49 0-1.63 1.65-2.63 4.7-2.63 3.3 0 5.72.88 6.42 3.87h6.93c-.39-5.61-4.52-9.36-12.91-9.36-7.24 0-12.33 2.94-12.33 8.61 0 3.93 2.8 6.49 8.84 7.74l6.61 1.5c2.6.5 3.3 1.18 3.3 2.24 0 1.69-2 2.75-5.15 2.75-4 0-6.29-.87-7.18-3.87h-7c1 5.62 5.28 9.36 13.92 9.36M25.38 84.43h26.13v6.23H32.44v8.93H51v6H32.44v9h19.07v6.24H25.38Z" fill="#06c167"/><path d="M134.37 52.81v-4.9h-1.86A7.28 7.28 0 0 0 126 51.4v-3.28h-5.31v26.59h5.36V59.59c0-4.12 2.55-6.78 6.06-6.78ZM95.81 59a8.42 8.42 0 0 1 16.52 0Zm8.39-11.4a13.8 13.8 0 0 0-13.92 13.81c0 7.93 6.27 13.87 14.4 13.87a14.26 14.26 0 0 0 11.68-5.68l-3.88-2.82a9.36 9.36 0 0 1-7.8 3.92 9 9 0 0 1-9-7.56h22v-1.73c0-7.92-5.73-13.81-13.54-13.81M73.56 70.7a9.23 9.23 0 1 1 9.29-9.23 9.25 9.25 0 0 1-9.29 9.23M59 74.71h5.31v-3.34a13.66 13.66 0 0 0 9.67 4 13.9 13.9 0 1 0 0-27.79 13.55 13.55 0 0 0-9.62 4V38.21H59Zm-18.9-4.28c5.15 0 9.13-3.91 9.13-9.69V38.21h5.58v36.5h-5.53v-3.39a13.54 13.54 0 0 1-9.82 4c-8 0-14.08-5.69-14.08-14.29V38.21H31v22.53c0 5.89 3.93 9.69 9.14 9.69" fill="#f6f0ea"/></svg><span><b>We're on Uber Eats</b><small>Order delivery to your door</small></span><span class="go" aria-hidden="true">&#8594;</span></a>
       </div>
     </div>
     <div class="nav-actions">
-      <a href="https://www.ubereats.com/au/store/rustic-char-lennox-head/xNy7I_s9UMS23CQCAHFG3Q?surfaceName=" target="_blank" rel="noopener" class="nav-uber"><svg viewBox="0 0 160.37 160.37" xmlns="http://www.w3.org/2000/svg"><rect width="160.37" height="160.37" rx="31.59" fill="#142328"/><path d="M76.86 107.45a8.33 8.33 0 1 0-8.33 8.23 8.22 8.22 0 0 0 8.33-8.23M83.66 94v27h-6.93v-2.43a13.66 13.66 0 0 1-8.73 3.04 14.17 14.17 0 1 1 0-28.33 13.72 13.72 0 0 1 8.77 3.12V94Zm23 20.84h-5.21c-1.59 0-2.61-.69-2.61-2.12v-12.64h7.82V94h-7.79v-7.7h-7V94h-5.26v6.11h5.27v14.35c0 3.62 2.61 6.49 7.31 6.49h7.5Zm15.79 6.8c8 0 12.52-3.74 12.52-8.92 0-3.68-2.67-6.43-8.26-7.61l-5.91-1.19c-3.43-.62-4.51-1.25-4.51-2.49 0-1.63 1.65-2.63 4.7-2.63 3.3 0 5.72.88 6.42 3.87h6.93c-.39-5.61-4.52-9.36-12.91-9.36-7.24 0-12.33 2.94-12.33 8.61 0 3.93 2.8 6.49 8.84 7.74l6.61 1.5c2.6.5 3.3 1.18 3.3 2.24 0 1.69-2 2.75-5.15 2.75-4 0-6.29-.87-7.18-3.87h-7c1 5.62 5.28 9.36 13.92 9.36M25.38 84.43h26.13v6.23H32.44v8.93H51v6H32.44v9h19.07v6.24H25.38Z" fill="#06c167"/><path d="M134.37 52.81v-4.9h-1.86A7.28 7.28 0 0 0 126 51.4v-3.28h-5.31v26.59h5.36V59.59c0-4.12 2.55-6.78 6.06-6.78ZM95.81 59a8.42 8.42 0 0 1 16.52 0Zm8.39-11.4a13.8 13.8 0 0 0-13.92 13.81c0 7.93 6.27 13.87 14.4 13.87a14.26 14.26 0 0 0 11.68-5.68l-3.88-2.82a9.36 9.36 0 0 1-7.8 3.92 9 9 0 0 1-9-7.56h22v-1.73c0-7.92-5.73-13.81-13.54-13.81M73.56 70.7a9.23 9.23 0 1 1 9.29-9.23 9.25 9.25 0 0 1-9.29 9.23M59 74.71h5.31v-3.34a13.66 13.66 0 0 0 9.67 4 13.9 13.9 0 1 0 0-27.79 13.55 13.55 0 0 0-9.62 4V38.21H59Zm-18.9-4.28c5.15 0 9.13-3.91 9.13-9.69V38.21h5.58v36.5h-5.53v-3.39a13.54 13.54 0 0 1-9.82 4c-8 0-14.08-5.69-14.08-14.29V38.21H31v22.53c0 5.89 3.93 9.69 9.14 9.69" fill="#f6f0ea"/></svg>Order on Uber Eats</a>
-      <a href="tel:0493192496" class="nav-call">Call to order</a>
+      <a href="tel:0493192496" class="nav-call">Call to Order</a>
+      <a href="https://www.ubereats.com/au/store/rustic-char-lennox-head/xNy7I_s9UMS23CQCAHFG3Q?surfaceName=" target="_blank" rel="noopener" class="nav-uber"><svg viewBox="0 0 160.37 160.37" xmlns="http://www.w3.org/2000/svg"><rect width="160.37" height="160.37" rx="31.59" fill="#142328"/><path d="M76.86 107.45a8.33 8.33 0 1 0-8.33 8.23 8.22 8.22 0 0 0 8.33-8.23M83.66 94v27h-6.93v-2.43a13.66 13.66 0 0 1-8.73 3.04 14.17 14.17 0 1 1 0-28.33 13.72 13.72 0 0 1 8.77 3.12V94Zm23 20.84h-5.21c-1.59 0-2.61-.69-2.61-2.12v-12.64h7.82V94h-7.79v-7.7h-7V94h-5.26v6.11h5.27v14.35c0 3.62 2.61 6.49 7.31 6.49h7.5Zm15.79 6.8c8 0 12.52-3.74 12.52-8.92 0-3.68-2.67-6.43-8.26-7.61l-5.91-1.19c-3.43-.62-4.51-1.25-4.51-2.49 0-1.63 1.65-2.63 4.7-2.63 3.3 0 5.72.88 6.42 3.87h6.93c-.39-5.61-4.52-9.36-12.91-9.36-7.24 0-12.33 2.94-12.33 8.61 0 3.93 2.8 6.49 8.84 7.74l6.61 1.5c2.6.5 3.3 1.18 3.3 2.24 0 1.69-2 2.75-5.15 2.75-4 0-6.29-.87-7.18-3.87h-7c1 5.62 5.28 9.36 13.92 9.36M25.38 84.43h26.13v6.23H32.44v8.93H51v6H32.44v9h19.07v6.24H25.38Z" fill="#06c167"/><path d="M134.37 52.81v-4.9h-1.86A7.28 7.28 0 0 0 126 51.4v-3.28h-5.31v26.59h5.36V59.59c0-4.12 2.55-6.78 6.06-6.78ZM95.81 59a8.42 8.42 0 0 1 16.52 0Zm8.39-11.4a13.8 13.8 0 0 0-13.92 13.81c0 7.93 6.27 13.87 14.4 13.87a14.26 14.26 0 0 0 11.68-5.68l-3.88-2.82a9.36 9.36 0 0 1-7.8 3.92 9 9 0 0 1-9-7.56h22v-1.73c0-7.92-5.73-13.81-13.54-13.81M73.56 70.7a9.23 9.23 0 1 1 9.29-9.23 9.25 9.25 0 0 1-9.29 9.23M59 74.71h5.31v-3.34a13.66 13.66 0 0 0 9.67 4 13.9 13.9 0 1 0 0-27.79 13.55 13.55 0 0 0-9.62 4V38.21H59Zm-18.9-4.28c5.15 0 9.13-3.91 9.13-9.69V38.21h5.58v36.5h-5.53v-3.39a13.54 13.54 0 0 1-9.82 4c-8 0-14.08-5.69-14.08-14.29V38.21H31v22.53c0 5.89 3.93 9.69 9.14 9.69" fill="#f6f0ea"/></svg><span class="txt">Order on Uber Eats</span></a>
       <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu"><span></span><span></span></button>
+      <a class="nav-logo" href="#top" aria-label="Rustic Char home"><img src="assets/logo-badge.webp" alt="" width="225" height="225" decoding="async"></a>
     </div>
   </nav>
 </header>
 <div class="nav-scrim" id="navScrim"></div>
-<a href="https://www.ubereats.com/au/store/rustic-char-lennox-head/xNy7I_s9UMS23CQCAHFG3Q?surfaceName=" target="_blank" rel="noopener" class="uber-banner"><svg viewBox="0 0 160.37 160.37" xmlns="http://www.w3.org/2000/svg"><rect width="160.37" height="160.37" rx="31.59" fill="#142328"/><path d="M76.86 107.45a8.33 8.33 0 1 0-8.33 8.23 8.22 8.22 0 0 0 8.33-8.23M83.66 94v27h-6.93v-2.43a13.66 13.66 0 0 1-8.73 3.04 14.17 14.17 0 1 1 0-28.33 13.72 13.72 0 0 1 8.77 3.12V94Zm23 20.84h-5.21c-1.59 0-2.61-.69-2.61-2.12v-12.64h7.82V94h-7.79v-7.7h-7V94h-5.26v6.11h5.27v14.35c0 3.62 2.61 6.49 7.31 6.49h7.5Zm15.79 6.8c8 0 12.52-3.74 12.52-8.92 0-3.68-2.67-6.43-8.26-7.61l-5.91-1.19c-3.43-.62-4.51-1.25-4.51-2.49 0-1.63 1.65-2.63 4.7-2.63 3.3 0 5.72.88 6.42 3.87h6.93c-.39-5.61-4.52-9.36-12.91-9.36-7.24 0-12.33 2.94-12.33 8.61 0 3.93 2.8 6.49 8.84 7.74l6.61 1.5c2.6.5 3.3 1.18 3.3 2.24 0 1.69-2 2.75-5.15 2.75-4 0-6.29-.87-7.18-3.87h-7c1 5.62 5.28 9.36 13.92 9.36M25.38 84.43h26.13v6.23H32.44v8.93H51v6H32.44v9h19.07v6.24H25.38Z" fill="#06c167"/><path d="M134.37 52.81v-4.9h-1.86A7.28 7.28 0 0 0 126 51.4v-3.28h-5.31v26.59h5.36V59.59c0-4.12 2.55-6.78 6.06-6.78ZM95.81 59a8.42 8.42 0 0 1 16.52 0Zm8.39-11.4a13.8 13.8 0 0 0-13.92 13.81c0 7.93 6.27 13.87 14.4 13.87a14.26 14.26 0 0 0 11.68-5.68l-3.88-2.82a9.36 9.36 0 0 1-7.8 3.92 9 9 0 0 1-9-7.56h22v-1.73c0-7.92-5.73-13.81-13.54-13.81M73.56 70.7a9.23 9.23 0 1 1 9.29-9.23 9.25 9.25 0 0 1-9.29 9.23M59 74.71h5.31v-3.34a13.66 13.66 0 0 0 9.67 4 13.9 13.9 0 1 0 0-27.79 13.55 13.55 0 0 0-9.62 4V38.21H59Zm-18.9-4.28c5.15 0 9.13-3.91 9.13-9.69V38.21h5.58v36.5h-5.53v-3.39a13.54 13.54 0 0 1-9.82 4c-8 0-14.08-5.69-14.08-14.29V38.21H31v22.53c0 5.89 3.93 9.69 9.14 9.69" fill="#f6f0ea"/></svg><span>We're on Uber Eats, order delivery</span><span class="arrow">&#8594;</span></a>
-
 
 <section class="hero" id="top">
-  <video class="hero-video" poster="assets/video/hero-wide-poster.webp" data-wide="assets/video/hero-wide.mp4" data-tall="assets/video/hero-tall.mp4" data-poster-tall="assets/video/hero-tall-poster.webp" muted loop playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
-  <div class="hero-stage">
-    <h1 class="headline"><span>Char-grilled</span> <span>chicken with</span> <span><em>Caribbean soul</em><span class="hl-palms" aria-hidden="true"></span></span></h1>
-    <p class="hero-sub">Where French Caribbean street food and modern Australian cuisine collide in a colourful affair. Cooked fresh in Lennox. Good food - Good times.</p>
-  </div>
-  <div class="hero-foot">
-    <p class="open-status" data-open-status>Open Tue&ndash;Sat &middot; 11:30am&ndash;7pm</p>
-    <div class="hero-cta">
-      <a href="tel:0493192496" class="btn btn-fill">Call to order</a>
-      <a href="#menu" class="btn btn-ghost">See the menu</a>
+  <img class="hero-img" src="assets/hero.webp" alt="Inside Rustic Char, the counter and menu board" width="2560" height="1920" decoding="async" fetchpriority="high">
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <div class="wordmark" role="img" aria-label="Rustic Char"><span>Rustic</span> <span>Char<i class="wm-palms"></i></span></div>
+    <div class="hero-row">
+        <h1>Char-grilled chicken with <em>Caribbean soul</em></h1>
+        <p class="lead">French Caribbean street food, cooked fresh in Lennox. Everything made from scratch.</p>
     </div>
-    <a href="https://www.google.com/maps/search/?api=1&query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" class="hero-rating"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="u-link">5.0 from 101 Google reviews</span></a>
+    <div class="hero-cta">
+      <a href="tel:0493192496" class="btn btn-fill">Call to Order</a>
+      <a href="#menu" class="btn btn-out">See the Menu</a>
+    </div>
+    <div class="hero-meta">
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" class="hero-rating"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="u-link">5.0 from 101 Google reviews</span></a>
+      <div class="open-status label" data-open-status>Open Tue&ndash;Sat &middot; 11:30am&ndash;7pm</div>
+    </div>
   </div>
 </section>
 
-<div class="band">
-  <span>Made In-House Daily</span><span>Naturally Seasoned</span><span>Gluten-Free &amp; Low-Allergen</span><span>Plenty of Vegan Options</span>
+<div class="below">
+
+<div class="tiles" aria-hidden="true"></div>
+<div class="band label">
+  <span>Locally Sourced</span><span>All Natural</span><span>Made In House</span><span>Entirely Gluten-Free Menu</span>
 </div>
 
-
-<p class="lead">Everything is made in-house daily, including our unique marinades, fresh salsas and signature sauces.</p>
-<p class="lead">We naturally season our food with a distinctive blend of <em>French Creole flavours</em>, bringing bold, vibrant and authentic taste to every dish.</p>
-
-<section class="gallery-scroll" id="galleryScroll" aria-label="A look inside Rustic Char">
-  <div class="gallery-scroll-pin">
-    <div class="gallery-scroll-track" id="galleryTrack">
-      <figure class="gallery-scroll-item" aria-hidden="true"><a href="gallery.html" tabindex="-1" aria-label="See the full gallery"><img src="assets/gallery/ig-grilled-plate.webp" alt="" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery-roast-trays.webp" alt="Trays of whole roasted chickens" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item strip-wide"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery/ig-curry-bowl.webp" alt="Chicken curry bowl with creole rice and pickled slaw" width="476" height="642" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item strip-wide"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery-counter-trays.webp" alt="The counter, fresh salads on display" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery-plate-full.webp" alt="A full plate: roast chicken, rice, potato salad, coleslaw and garden salad" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item strip-wide"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery/ig-char-chicken.webp" alt="Charred Creole chicken, up close" width="480" height="642" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery-counter-team.webp" alt="The Rustic Char team behind the counter" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item strip-wide"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery-roll-tile.webp" alt="A roll, fresh out the box" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery/ig-grilled-plate.webp" alt="Grilled chicken with fresh salad and salsa" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item strip-wide"><a href="gallery.html" aria-label="See the full gallery"><img src="assets/gallery/ig-salsa-cups.webp" alt="House-made salsas and sauces" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-      <figure class="gallery-scroll-item" aria-hidden="true"><a href="gallery.html" tabindex="-1" aria-label="See the full gallery"><img src="assets/gallery-roast-trays.webp" alt="" width="480" height="640" decoding="async" loading="lazy"></a></figure>
-    </div>
+<section class="reel" aria-label="A look inside Rustic Char">
+  <div class="reel-track" id="reelTrack">
+      <a href="gallery.html"><img src="assets/gallery/chicken-charred.webp" alt="Creole chicken, straight off the heat" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/counter-salads.webp" alt="Fresh salads on the counter" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/burger-spicy-island.webp" alt="Spicy Island burger" width="550" height="440" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery-staff-bowl.webp" alt="Fresh ingredients, prepped by hand" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/teaser-plate.webp" alt="Creole chicken and salads by the beach" width="525" height="700" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/roll-curry-fries.webp" alt="Pulled chicken curry roll with fries" width="550" height="440" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/curry-bowl.webp" alt="Colombo curry bowl" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/plate-full.webp" alt="A full plate: chicken, rice, slaw and salads" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/ig-kid-burger.webp" alt="A young customer taking on a chicken burger" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/burger-country-classic.webp" alt="Country Classic burger" width="550" height="440" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/acras-and-veg.webp" alt="Acras and roast veg" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/the-crew.webp" alt="The Rustic Char crew" width="360" height="480" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/roll-in-box.webp" alt="A roll, fresh out the box" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/teaser-shop.webp" alt="House lemonade" width="394" height="700" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/roast-veg.webp" alt="Oven-roasted veg" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="gallery.html"><img src="assets/gallery/burgers-and-fries.webp" alt="Burgers and fries" width="640" height="480" decoding="async" loading="lazy"></a>
   </div>
-</section>
-
-<section class="wheel" id="wheel">
-  <div class="wrap">
-    <div class="wheel-head">
-      <h2 class="sign">Our Rolls and Burgers</h2>
-      <p>Curated chicken burgers &amp; pulled chicken rolls</p>
-    </div>
-
-    <div class="wheel-stage">
-      <button class="wheel-arrow wheel-prev" type="button" aria-label="Previous flavour">&#10094;</button>
-
-      <div class="wheel-ring" id="wheelRing" role="listbox" aria-label="Flavour wheel">
-        <button class="wheel-item" type="button" role="option" data-index="0" aria-label="Country Classic"><img src="assets/roll-country-classic.webp" alt="Country Classic" width="340" height="307" decoding="async" loading="lazy"></button>
-        <button class="wheel-item" type="button" role="option" data-index="1" aria-label="Spicy Island"><img src="assets/roll-spicy-island.webp" alt="Spicy Island" width="340" height="338" decoding="async" loading="lazy"></button>
-        <button class="wheel-item" type="button" role="option" data-index="2" aria-label="Earth Works"><img src="assets/roll-earth-works.webp" alt="Earth Works" width="340" height="317" decoding="async" loading="lazy"></button>
-        <button class="wheel-item" type="button" role="option" data-index="3" aria-label="Pulled Chicken and Lettuce Roll"><img src="assets/roll-pulled-lettuce.webp" alt="Pulled Chicken and Lettuce Roll" width="340" height="159" decoding="async" loading="lazy"></button>
-        <button class="wheel-item" type="button" role="option" data-index="4" aria-label="Pulled Chicken Curry Roll"><img src="assets/roll-pulled-curry.webp" alt="Pulled Chicken Curry Roll" width="340" height="248" decoding="async" loading="lazy"></button>
-        <button class="wheel-item" type="button" role="option" data-index="5" aria-label="Barbecue Chicken and Garden Salad Roll"><img src="assets/roll-bbq-salad.webp" alt="Barbecue Chicken and Garden Salad Roll" width="340" height="191" decoding="async" loading="lazy"></button>
-      </div>
-
-      <button class="wheel-arrow wheel-next" type="button" aria-label="Next flavour">&#10095;</button>
-    </div>
-
-    <div class="wheel-panel">
-      <div class="wheel-name" id="wheelName">Country Classic<span class="item-tags" id="wheelTags"></span></div>
-      <div class="wheel-desc" id="wheelDesc">Crispy chicken thigh, herb aioli, iceberg lettuce</div>
-    </div>
-
-    <div class="wheel-dots" id="wheelDots">
-      <button class="wheel-dot" type="button" data-index="0" aria-label="Go to Country Classic"></button>
-      <button class="wheel-dot" type="button" data-index="1" aria-label="Go to Spicy Island"></button>
-      <button class="wheel-dot" type="button" data-index="2" aria-label="Go to Earth Works"></button>
-      <button class="wheel-dot" type="button" data-index="3" aria-label="Go to Pulled Chicken and Lettuce Roll"></button>
-      <button class="wheel-dot" type="button" data-index="4" aria-label="Go to Pulled Chicken Curry Roll"></button>
-      <button class="wheel-dot" type="button" data-index="5" aria-label="Go to Barbecue Chicken and Garden Salad Roll"></button>
-    </div>
+  <div class="wrap reel-foot">
+    <a href="gallery.html" class="reel-link label u-link">See the full gallery &#8594;</a>
   </div>
 </section>
 
@@ -570,6 +106,7 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
   <div class="wrap">
     <div class="menu-head">
       <h2 class="sign">The Menu</h2>
+      <p>Char-grilled creole chicken, burgers, bowls, wings and Caribbean sides.</p>
     </div>
     <div class="menu-key">
       <span><b class="badge">FR</b> Free Range</span>
@@ -577,11 +114,13 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
       <span><b class="badge">DF</b> Dairy Free</span>
       <span><b class="badge">V</b> Vegan</span>
     </div>
+    <p class="menu-note">The only gluten-containing item on site is individually packaged burger buns, stored and prepared separately.</p>
+
     <div class="menu-grid">
       <div class="cat">
         <h3>Burgers</h3>
-        <div class="item"><div><div class="item-name">Country Classic <span class="item-tags"><b class="badge">DF</b></span></div><div class="item-desc">Crispy chicken thigh, herb aioli, iceberg lettuce</div></div><div class="item-price">$17</div></div>
-        <div class="item"><div><div class="item-name">Spicy Island <span class="item-tags"><b class="badge">DF</b></span></div><div class="item-desc">Crispy chicken thigh, chilli aioli, pickled slaw</div></div><div class="item-price">$17</div></div>
+        <div class="item"><div><div class="item-name">Country Classic <span class="item-tags"><b class="badge">FR</b><b class="badge">DF</b></span></div><div class="item-desc">Crispy chicken thigh, herb aioli, iceberg lettuce</div></div><div class="item-price">$17</div></div>
+        <div class="item"><div><div class="item-name">Spicy Island <span class="item-tags"><b class="badge">FR</b><b class="badge">DF</b></span></div><div class="item-desc">Crispy chicken thigh, chilli aioli, pickled slaw</div></div><div class="item-price">$17</div></div>
         <div class="item"><div><div class="item-name">Earth Works <span class="item-tags"><b class="badge">V</b><b class="badge">DF</b></span></div><div class="item-desc">Crunchy acras or mixed veg patty, chilli or herb aioli, lettuce or slaw</div></div><div class="item-price">$17</div></div>
         <div class="item"><div><div class="item-name">Gluten Free Buns</div></div><div class="item-price">+$3</div></div>
         <div class="item"><div><div class="item-name">Add Chips</div></div><div class="item-price">$4</div></div>
@@ -590,22 +129,22 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
 
       <div class="cat">
         <h3>Rolls</h3>
-        <div class="item"><div><div class="item-name">Pulled Chicken &amp; Aioli</div><div class="item-desc">Herb aioli and iceberg lettuce</div></div><div class="item-price">$17</div></div>
-        <div class="item"><div><div class="item-name">Pulled Chicken Curry</div><div class="item-desc">Curry gravy and pickled slaw</div></div><div class="item-price">$17</div></div>
-        <div class="item"><div><div class="item-name">Tossed Crispy BBQ Chicken</div><div class="item-desc">Aioli and garden salad</div></div><div class="item-price">$17</div></div>
+        <div class="item"><div><div class="item-name">Pulled Chicken &amp; Aioli <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">Herb aioli and iceberg lettuce</div></div><div class="item-price">$17</div></div>
+        <div class="item"><div><div class="item-name">Pulled Chicken Curry <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">Curry gravy and pickled slaw</div></div><div class="item-price">$17</div></div>
+        <div class="item"><div><div class="item-name">Tossed Crispy BBQ Chicken <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">Aioli and garden salad</div></div><div class="item-price">$17</div></div>
         <div class="item"><div><div class="item-name">Add Chips</div></div><div class="item-price">$4</div></div>
         <div class="item"><div><div class="item-name">Add Chilli Hit</div></div><div class="item-price">$1</div></div>
       </div>
 
       <div class="cat">
-        <h3>Bowls <span class="all"><b class="badge">DF</b> <b class="badge">GF</b></span></h3>
+        <h3>Bowls <span class="all"><b class="badge">FR</b> <b class="badge">DF</b> <b class="badge">GF</b></span></h3>
         <div class="item"><div><div class="item-name">Crispy Chicken Bowl</div><div class="item-desc">Curry gravy, creole rice and pickled slaw</div></div><div class="item-price">$20</div></div>
         <div class="item"><div><div class="item-name">Pulled Chicken Bowl</div><div class="item-desc">Mixed veg, curry gravy, creole rice and pickled slaw</div></div><div class="item-price">$23</div></div>
         <div class="item"><div><div class="item-name">Add Chilli Hit</div></div><div class="item-price">$1</div></div>
       </div>
 
       <div class="cat">
-        <h3>Creole Style Chicken <span class="all"><b class="badge">DF</b> <b class="badge">GF</b></span></h3>
+        <h3>Creole Style Chicken <span class="all"><b class="badge">FR</b> <b class="badge">DF</b> <b class="badge">GF</b></span></h3>
         <div class="item"><div><div class="item-name">Quarter (1/4)</div></div><div class="item-price">$9</div></div>
         <div class="item"><div><div class="item-name">Half (1/2)</div></div><div class="item-price">$16</div></div>
         <div class="item"><div><div class="item-name">Whole</div></div><div class="item-price">$27</div></div>
@@ -614,10 +153,10 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
 
       <div class="cat">
         <h3>Wings</h3>
-        <div class="item"><div><div class="item-name">Crispy <span class="item-tags"><b class="badge">DF</b><b class="badge">GF</b></span></div></div><div class="item-price">$3.50</div></div>
-        <div class="item"><div><div class="item-name">Habanero Butter <span class="item-tags"><b class="badge">GF</b></span></div></div><div class="item-price">$3.50</div></div>
-        <div class="item"><div><div class="item-name">Sticky BBQ <span class="item-tags"><b class="badge">DF</b><b class="badge">GF</b></span></div></div><div class="item-price">$3.50</div></div>
-        <div class="item"><div><div class="item-name">Fried Chicken Thigh</div></div><div class="item-price">$7.50</div></div>
+        <div class="item"><div><div class="item-name">Crispy <span class="item-tags"><b class="badge">FR</b><b class="badge">DF</b><b class="badge">GF</b></span></div></div><div class="item-price">$3.50</div></div>
+        <div class="item"><div><div class="item-name">Habanero Butter <span class="item-tags"><b class="badge">FR</b><b class="badge">GF</b></span></div></div><div class="item-price">$3.50</div></div>
+        <div class="item"><div><div class="item-name">Sticky BBQ <span class="item-tags"><b class="badge">FR</b><b class="badge">DF</b><b class="badge">GF</b></span></div></div><div class="item-price">$3.50</div></div>
+        <div class="item"><div><div class="item-name">Fried Chicken Thigh <span class="item-tags"><b class="badge">FR</b></span></div></div><div class="item-price">$7.50</div></div>
       </div>
 
       <div class="cat">
@@ -635,16 +174,16 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
 
       <div class="cat">
         <h3>Combos</h3>
-        <div class="item"><div><div class="item-name">1/4 Chicken Combo</div><div class="item-desc">Fries and curry gravy</div></div><div class="item-price">$17</div></div>
-        <div class="item"><div><div class="item-name">1/2 Chicken Combo</div><div class="item-desc">Fries and curry gravy</div></div><div class="item-price">$24</div></div>
-        <div class="item"><div><div class="item-name">Fries Pack</div><div class="item-desc">1 chicken, 1 med side, 1 lge fries, 1 lge salsa or curry gravy</div></div><div class="item-price">$59</div></div>
-        <div class="item"><div><div class="item-name">Sides Pack</div><div class="item-desc">1 chicken, 2 med sides, 1 lge salsa or curry gravy</div></div><div class="item-price">$65</div></div>
+        <div class="item"><div><div class="item-name">1/4 Chicken Combo <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">Fries and curry gravy</div></div><div class="item-price">$17</div></div>
+        <div class="item"><div><div class="item-name">1/2 Chicken Combo <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">Fries and curry gravy</div></div><div class="item-price">$24</div></div>
+        <div class="item"><div><div class="item-name">Fries Pack <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">1 chicken, 1 med side, 1 lge fries, 1 lge salsa or curry gravy</div></div><div class="item-price">$59</div></div>
+        <div class="item"><div><div class="item-name">Sides Pack <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">1 chicken, 2 med sides, 1 lge salsa or curry gravy</div></div><div class="item-price">$65</div></div>
       </div>
 
       <div class="cat">
         <h3>House Plate <span class="all"><b class="badge">V</b> <b class="badge">GF</b></span></h3>
-        <div class="item"><div><div class="item-name">1/4 Chicken / 3x Wings / 3x Acras</div><div class="item-desc">Hot or cold sides with Caribbean salsa or curry gravy</div></div><div class="item-price">$27</div></div>
-        <div class="item"><div><div class="item-name">1/2 Chicken Plate</div><div class="item-desc">Hot or cold sides with Caribbean salsa or curry gravy</div></div><div class="item-price">$34</div></div>
+        <div class="item"><div><div class="item-name">1/4 Chicken / 3x Wings / 3x Acras <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">Hot or cold sides with Caribbean salsa or curry gravy</div></div><div class="item-price">$27</div></div>
+        <div class="item"><div><div class="item-name">1/2 Chicken Plate <span class="item-tags"><b class="badge">FR</b></span></div><div class="item-desc">Hot or cold sides with Caribbean salsa or curry gravy</div></div><div class="item-price">$34</div></div>
       </div>
 
       <div class="cat">
@@ -655,34 +194,6 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
         <div class="item"><div><div class="item-name">Curry Gravy <span class="item-tags"><b class="badge">GF</b></span></div></div><div class="item-price">S $3 / L $8</div></div>
       </div>
     </div>
-    <p class="menu-note">The only gluten-containing item on site is individually packaged burger buns, stored and prepared separately.</p>
-  </div>
-</section>
-
-<section class="catering" id="catering">
-  <div class="wrap catering-grid">
-    <div>
-      <span class="eyebrow">Catering</span>
-      <h2 class="sign">Feeding a crowd?<br><em>We've got you covered.</em></h2>
-      <p>Birthdays, work lunches, parties and get-togethers. We cater with the same food we cook every day, made in-house, with plenty of options for gluten-free and dairy-free.</p>
-      <ul class="catering-list">
-        <li><b>01</b>Whole Creole chickens, pulled chicken, wings and burgers</li>
-        <li><b>02</b>Big trays of fresh salads and oven-roasted veg</li>
-        <li><b>03</b>Creole rice, Caribbean salsa and curry gravy</li>
-      </ul>
-      <div class="catering-cta">
-        <a href="tel:0493192496" class="btn btn-fill">Call 0493 192 496</a>
-        <a href="mailto:rusticchar@icloud.com?subject=Catering%20enquiry" class="btn btn-out">Email an enquiry</a>
-      </div>
-    </div>
-    <div class="catering-photos">
-      <img class="tall" src="assets/gallery/counter-salads.webp" alt="Trays of fresh salads on the counter" width="480" height="640" decoding="async" loading="lazy">
-      <img class="sq" src="assets/gallery/chicken-tray.webp" alt="A tray of Creole roast chickens" width="480" height="640" decoding="async" loading="lazy">
-      <img class="sq" src="assets/gallery/acras-and-veg.webp" alt="Acras and roast veg" width="480" height="640" decoding="async" loading="lazy">
-      <img class="m-only" src="assets/gallery/ig-grilled-plate.webp" alt="Grilled chicken with fresh salad and salsa" width="480" height="640" decoding="async" loading="lazy">
-      <img class="m-only" src="assets/gallery/ig-rice-salad.webp" alt="Rice salad with olives, spinach and capsicum" width="476" height="642" decoding="async" loading="lazy">
-      <img class="m-only" src="assets/gallery/ig-salsa-cups.webp" alt="House-made salsas and sauces" width="480" height="640" decoding="async" loading="lazy">
-    </div>
   </div>
 </section>
 
@@ -690,20 +201,25 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
   <div class="wrap visit-grid">
     <div class="card" id="hours-card">
       <h3 class="sign">Opening Hours</h3>
-      <p class="open-status card-status" data-open-status>Open Tue&ndash;Sat &middot; 11:30am&ndash;7pm</p>
-      <div class="hrow"><span class="day" data-dow="2 3 4 5 6"><span class="d-long">Tuesday &ndash; Saturday</span><span class="d-short" aria-hidden="true">Tue &ndash; Sat</span></span><span class="time">11:30am &ndash; 7pm</span></div>
-      <div class="hrow shut"><span class="day" data-dow="0 1"><span class="d-long">Sunday &amp; Monday</span><span class="d-short" aria-hidden="true">Sun &amp; Mon</span></span><span class="time">Closed</span></div>
+      <p class="open-status label" data-open-status>Open Tue&ndash;Sat &middot; 11:30am&ndash;7pm</p>
+      <div class="hrow"><span class="day">Tuesday</span><span class="time">11:30am &ndash; 7pm</span></div>
+      <div class="hrow"><span class="day">Wednesday</span><span class="time">11:30am &ndash; 7pm</span></div>
+      <div class="hrow"><span class="day">Thursday</span><span class="time">11:30am &ndash; 7pm</span></div>
+      <div class="hrow"><span class="day">Friday</span><span class="time">11:30am &ndash; 7pm</span></div>
+      <div class="hrow"><span class="day">Saturday</span><span class="time">11:30am &ndash; 7pm</span></div>
+      <div class="hrow shut"><span class="day">Sunday</span><span class="time">Closed</span></div>
+      <div class="hrow shut"><span class="day">Monday</span><span class="time">Closed</span></div>
     </div>
 
     <div class="card" id="contact">
       <h3 class="sign">Get In Touch</h3>
-      <div class="note">Dine in, takeaway or call ahead</div>
-      <a class="crow" href="tel:0493192496"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span class="ctext">0493 192 496</span><span class="go" aria-hidden="true">&#8594;</span></a>
-      <a class="crow" href="mailto:rusticchar@icloud.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span class="ctext">rusticchar@<wbr>icloud.com</span><span class="go" aria-hidden="true">&#8594;</span></a>
-      <a class="crow" href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></span><span class="ctext">@rustic.char</span><span class="go" aria-hidden="true">&#8594;</span></a>
-      <a class="crow" href="https://www.google.com/maps/search/?api=1&query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span class="ctext">56 Ballina St, Lennox Head NSW 2478</span><span class="go" aria-hidden="true">&#8594;</span></a>
+      <div class="note label">Dine in, takeaway or call ahead</div>
+      <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><a href="tel:0493192496">0493 192 496</a></div>
+      <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><a href="mailto:rusticchar@icloud.com">rusticchar@icloud.com</a></div>
+      <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></span><a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener">@rustic.char</a></div>
+      <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span>56 Ballina St, Lennox Head NSW 2478</span></div>
       <div class="contact-cta">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" class="btn btn-fill">Get directions</a>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" class="btn btn-fill">Get Directions</a>
       </div>
     </div>
   </div>
@@ -712,549 +228,102 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
 <section class="reviews" id="reviews">
   <div class="wrap">
     <h2 class="sign">What Lennox Says</h2>
-    <p class="tagline">A proud takeaway restaurant, not a fast-food outlet</p>
-    <a href="https://www.google.com/maps/search/?api=1&query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" class="sub u-link">5.0 stars &middot; 101 Google reviews</a>
+    <a href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" class="sub label u-link">5.0 stars &middot; 101 Google reviews</a>
   </div>
-  <div class="rev-viewport" id="revViewport" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Google reviews. Scroll sideways for more">
+  <div class="rev-stage" id="revStage" role="region" aria-label="Google reviews">
     <div class="rev-track" id="revTrack">
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Wish I could give more than 5 stars!<br>The food is amazing, the portions are super generous, and the service makes it even better. The guy who served us was so kind and friendly.<br>My partner and I absolutely loved the chicken. Best place in Lennox 👍<br>We’ll definitely be back.<br><br>Thanks guys. You guys made our day ❤️</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">heapskorean</span><span class="meta">Google review</span></div></article>
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Of all the restaurants and cafes I’ve been to during my recent travels around Australia, this place stands out as the most soulful in all the best ways. Incredibly fresh and wholesome food with amazing flavors. 10/10 charred chicken with their own twist on the spices and origin story. Perfect for surfers or anyone needing clean energy that doesn’t weigh you down and still tastes great. The staff are awesome. Gracious and easygoing. I found myself dropping by to say a hello even when I was just walking by from the beach and not ordering takeaway. Worth making a trip to Lennox Head just to stop back for another meal here.</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">Nate K.</span><span class="meta">Google review</span></div></article>
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Amazing people behind this joint with a great backstory! Busy with the locals so obviously they know what they’re doing, on top of that the food itself is delicious and top quality. Chicken was perfectly cooked and tender! Paired great with the rice which was full of flavour and the caribbean salsa is amazing</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">Andrew J.</span><span class="meta">Google review</span></div></article>
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Fabulous lunch place.<br>New, spotlessly clean and lovely staff.<br>We shared the shredded chicken roll wit aoli and it was so tasty. Often things like that can be very very bland. This was so yummy and we were given a side of chilli sauce too. It was very hot, but very good. Their fries are very very good too. Fluffy inside and crunchy outside.<br>Lovely front of house girl.<br>Highly recommend as value for money, with very generous serving, fresh and tasty.</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">Helen R.</span><span class="meta">Google review</span></div></article>
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Can't believe I just discovered this totally GF place in Lennox. Absolutely delicious salads, roast veg and chicken.</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">Sarah M.</span><span class="meta">Google review</span></div></article>
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">What a great spot! Walked in and immediately greeting by a friendly guy who was happy to help us figure out the gluten situation. Great good, fantastic value, literally nothing to nick pick! If you're in town get down here for some delicious chicken and tasty salads!</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">Mathew T.</span><span class="meta">Google review</span></div></article>
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">The best place in Lennox, authentic and delicious food, the salads, vegetables, potatoes, and of course the chicken are amazing, you can see that the quality of the ingredients are very important to them, the service is perfect and very friendly, you can take your meals to go or on site, nice tables</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">Lou</span><span class="meta">Google review</span></div></article>
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Best chicken I've had in ages. Affordable price, speedy service, generous portions.</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">Jackson S.</span><span class="meta">Google review</span></div></article>
-      <article class="rev"><div class="stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="rev-text">Could smell this place all the way down the main street so I thought I'd check it out. Yum, great options &amp; loved the potato salad. Friendly staff, served fast!</p><button type="button" class="rev-more" hidden>Read more</button><div class="rev-foot"><span class="who">Mi Casa</span><span class="meta">Google review</span></div></article>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read heapskorean's review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Wish I could give more than 5 stars! The food is amazing, the portions are super generous, and the service makes it even better. The guy who served us was so kind and friendly. My partner and I absolutely loved the chicken. Best place in Lennox 👍 We’ll definitely be back. Thanks guys. You guys made our day ❤️</p><div class="rev-foot"><span class="who">heapskorean</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Love love love these guys! Not only do they make the best chicken burgers in town, but they also have a scrumptious selection of healthy lunch/dinner options that include marinated and grilled chicken, roasted veggies, fresh salads and omg their salsa is a must 👌🏻 I love that these guys are doing things their way, offering something a little different from the other cuisines out there and showcasing their heritage 🥰 If you’re after a quick healthy meal, or a juicy burger, these guys are a must visit for anyone living in or visiting Lennox.</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read Nate K.'s review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Of all the restaurants and cafes I’ve been to during my recent travels around Australia, this place stands out as the most soulful in all the best ways. Incredibly fresh and wholesome food with amazing flavors. 10/10 charred chicken with their own twist on the spices and origin story. Perfect for surfers or anyone needing clean energy that doesn’t weigh you down and still tastes great. The staff are awesome. Gracious and easygoing. I found myself dropping by to say a hello even when I was just walking by from the beach and not ordering takeaway. Worth making a trip to Lennox Head just to stop back for another meal here.</p><div class="rev-foot"><span class="who">Nate K.</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Must have! The Half chicken plate is so good! Chicken was so tender and flavour filled, highly recommend getting salsa with it. The team running the shop had above and beyond service! Thank you!</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read Andrew J.'s review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Amazing people behind this joint with a great backstory! Busy with the locals so obviously they know what they’re doing, on top of that the food itself is delicious and top quality. Chicken was perfectly cooked and tender! Paired great with the rice which was full of flavour and the caribbean salsa is amazing</p><div class="rev-foot"><span class="who">Andrew J.</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Amazing food, great service and wholesome vibes — the owners are also such genuine, lovely people. We honestly had such a great experience here. Succulent chicken with perfectly balanced flavours — same with the hot sides and the cold sides (salads). Everything I ate had great depth, zest, and balance. Note: Don’t sleep on the salsa or the Jamaican lemonade — just delightful! My kid had the Country Classic chicken burger and he said, “It’s delicious, juicy, and one of a kind. Can we live here?” We sure can try, kiddo. 10/10 absolutely coming back.</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read Helen R.'s review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Fabulous lunch place. New, spotlessly clean and lovely staff. We shared the shredded chicken roll wit aoli and it was so tasty. Often things like that can be very very bland. This was so yummy and we were given a side of chilli sauce too. It was very hot, but very good. Their fries are very very good too. Fluffy inside and crunchy outside. Lovely front of house girl. Highly recommend as value for money, with very generous serving, fresh and tasty.</p><div class="rev-foot"><span class="who">Helen R.</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>This is a place I will be frequenting often! Absolute gem of a chicken shop. juicy, perfectly seasoned chicken. The salads were fresh,colourful and absolutely delicious The hot sauce is this almost Caribbean-style, tangy, spicy, flavour-bomb that takes the chicken to a whole new level. Honestly could bottle it and sell it!</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read Sarah M.'s review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Can't believe I just discovered this totally GF place in Lennox. Absolutely delicious salads, roast veg and chicken.</p><div class="rev-foot"><span class="who">Sarah M.</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Yummy fresh food and reasonably priced. Had the half chicken lunch plate with my husband and we both loved it. Very generous portions, loved the curry gravy and fresh salads. Friendly staff. Highly recommend if you’re in Lennox.</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read Mathew T.'s review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>What a great spot! Walked in and immediately greeting by a friendly guy who was happy to help us figure out the gluten situation. Great good, fantastic value, literally nothing to nick pick! If you're in town get down here for some delicious chicken and tasty salads!</p><div class="rev-foot"><span class="who">Mathew T.</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>It’s refreshing to have such a selection of carefully crafted, house made healthy food. They had both vegan options for my friend and beautiful chicken and salad for me. I wish I lived here so I could come regularly. Thank you for a beautiful meal.</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read Lou's review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>The best place in Lennox, authentic and delicious food, the salads, vegetables, potatoes, and of course the chicken are amazing, you can see that the quality of the ingredients are very important to them, the service is perfect and very friendly, you can take your meals to go or on site, nice tables</p><div class="rev-foot"><span class="who">Lou</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>OMG YUM - had the plate with quarter chicken and it was absolutely delicious! Super fresh and great flavours. Great food, genuinely nice people. Definitely worth visiting</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read Jackson S.'s review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Best chicken I've had in ages. Affordable price, speedy service, generous portions.</p><div class="rev-foot"><span class="who">Jackson S.</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>We arrived as the heavens opened and grabbed a chair out front, the aroma of chicken danced on our senses and told us the correct decision had been made for our lunch. A plate towering with succulent chicken and well prepared sides was placed quickly followed by some beautiful fried fowl covered in a succulent gravy. A wonderful spice was frequent but not overpowering on every bite and the lemonade washed it down to perfection. I would happily have this every day and twice on Sunday, if you are looking for a mastication sensation this is the place.</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read Mi Casa's review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Could smell this place all the way down the main street so I thought I'd check it out. Yum, great options &amp; loved the potato salad. Friendly staff, served fast!</p><div class="rev-foot"><span class="who">Mi Casa</span><span class="meta label">Google review</span></div></a>
+      <a class="rev" href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" aria-label="Read this review on Google"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>This has been a long pending review. We came to get food right when they were closing. The guys at the store accommodated us. Even though they didn't necessarily have enough per their standard menu, they asked us how many in our group and very lovingly packed enough for us. The food quality was top notch, but the staff and their hospitality was the highlight.</p><div class="rev-foot"><span class="who">Google reviewer</span><span class="meta label">Google review</span></div></a>
     </div>
   </div>
   <div class="wrap">
-    <div class="rev-controls">
-      <button type="button" class="rev-arrow" id="revPrev" aria-label="Previous reviews">&#10094;</button>
-      <button type="button" class="rev-arrow" id="revNext" aria-label="Next reviews">&#10095;</button>
-    </div>
     <div class="write-review">
-      <h3 class="sign">Got something to say?</h3>
+      <h3 class="sign">Got Something To Say?</h3>
       <p>Good service, great chicken, or just had a good time, let us know on Google.</p>
-      <a href="https://www.google.com/maps/search/?api=1&query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" class="btn btn-fill">Leave a review</a>
+      <a href="https://www.google.com/maps/search/?api=1&amp;query=Rustic+Char+56+Ballina+St+Lennox+Head+NSW+2478" target="_blank" rel="noopener" class="btn btn-fill">Leave a Review</a>
     </div>
   </div>
 </section>
 
-
+<section class="catering" id="catering">
+  <div class="wrap catering-grid">
+    <div>
+      <span class="label">Catering</span>
+      <h2 class="sign">Feeding a crowd?</h2>
+      <p>Birthdays, work lunches, parties and get-togethers. We cater with the same food we cook every day, made in-house, with plenty of options for gluten-free and dairy-free.</p>
+      <ul class="catering-list">
+        <li>Whole Creole chickens, pulled chicken, wings and burgers</li>
+        <li>Big trays of fresh salads and oven-roasted veg</li>
+        <li>Creole rice, Caribbean salsa and curry gravy</li>
+      </ul>
+      <div class="catering-cta">
+        <a href="tel:0493192496" class="btn btn-fill">Call 0493 192 496</a>
+        <a href="mailto:rusticchar@icloud.com?subject=Catering%20enquiry" class="btn btn-line">Email an Enquiry</a>
+      </div>
+    </div>
+    <div class="catering-art">
+      <div class="catering-photos">
+        <img class="tall" src="assets/gallery/counter-salads.webp" alt="Trays of fresh salads on the counter" width="480" height="640" decoding="async" loading="lazy">
+        <img src="assets/gallery/chicken-tray.webp" alt="A tray of Creole roast chickens" width="480" height="640" decoding="async" loading="lazy">
+        <img src="assets/gallery/acras-and-veg.webp" alt="Acras and roast veg" width="480" height="640" decoding="async" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="igfeed">
   <div class="wrap">
     <div class="igfeed-head">
       <h2 class="sign">Follow Along</h2>
+      <p class="label">@rustic.char on Instagram</p>
     </div>
-    <!-- post count as of 28 Sep 2026: update now and then -->
-    <a class="ig-profile" href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener">
-      <img class="ig-avatar" src="assets/logo.webp" alt="" width="120" height="120" decoding="async" loading="lazy">
-      <span class="ig-info">
-        <span class="ig-handle">rustic.char</span>
-        <span class="ig-stats"><span><b>34</b> posts</span></span>
-        <span class="ig-bio">Good food - Good times</span>
-      </span>
-    </a>
     <div class="igfeed-grid">
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/gallery/ig-burger.webp" alt="Spicy Island burger, on Instagram" width="480" height="640" decoding="async" loading="lazy"></a>
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/gallery/ig-kid-burger.webp" alt="A young customer taking on a chicken burger, on Instagram" width="480" height="640" decoding="async" loading="lazy"></a>
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/gallery/ig-curry-bowl.webp" alt="Chicken curry bowl, on Instagram" width="476" height="642" decoding="async" loading="lazy"></a>
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/gallery/ig-chicken-lineup.webp" alt="Creole chickens lined up, on Instagram" width="480" height="488" decoding="async" loading="lazy"></a>
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/gallery/ig-roll-fries-veg.webp" alt="Chicken roll with fries and roast veg, on Instagram" width="480" height="640" decoding="async" loading="lazy"></a>
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/gallery/ig-grilled-plate.webp" alt="Grilled chicken with fresh salad, on Instagram" width="480" height="640" decoding="async" loading="lazy"></a>
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/gallery/ig-char-chicken.webp" alt="Charred Creole chicken, on Instagram" width="480" height="642" decoding="async" loading="lazy"></a>
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/gallery/ig-salsa-cups.webp" alt="House-made salsas, on Instagram" width="480" height="640" decoding="async" loading="lazy"></a>
+      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/teaser-plate.webp" alt="Rustic Char on Instagram" width="525" height="700" decoding="async" loading="lazy"></a>
+      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/teaser-counter.webp" alt="Rustic Char on Instagram" width="700" height="525" decoding="async" loading="lazy"></a>
+      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/teaser-bowl.webp" alt="Rustic Char on Instagram" width="394" height="700" decoding="async" loading="lazy"></a>
+      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener"><img src="assets/teaser-shop.webp" alt="Rustic Char on Instagram" width="394" height="700" decoding="async" loading="lazy"></a>
     </div>
     <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener" class="btn btn-fill igfeed-btn">View on Instagram</a>
   </div>
 </section>
 
-
 <footer>
-  <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <img class="flogo" src="assets/logo.webp" alt="Rustic Char" width="120" height="120" decoding="async" loading="lazy">
-        <div class="fdef"><span><b>Rustic</b> made in a plain and simple fashion, relating to the country.</span><span><b>Char</b> partially burnt, so as to blacken the surface.</span></div>
-      </div>
-      <div class="faddr">
-        <span class="label">Find us</span>
-        <p>56 Ballina St, Lennox Head NSW 2478</p>
-        <p><a href="tel:0493192496">0493 192 496</a></p>
-        <p>Tue&ndash;Sat, 11:30am&ndash;7pm</p>
-      </div>
-      <div class="fsoc">
-      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener" aria-label="Instagram"><span class="em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></span></a>
-      <a href="tel:0493192496" aria-label="Call"><span class="em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span></a>
-      <a href="mailto:rusticchar@icloud.com" aria-label="Email"><span class="em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span></a>
+  <div class="tiles" aria-hidden="true"></div>
+  <div class="wrap inner">
+    <img class="flogo" src="assets/logo-badge.webp" alt="Rustic Char" width="225" height="225" decoding="async" loading="lazy">
+    <div class="ftag sign">Rustic Char</div>
+    <div class="faddr">56 Ballina St, Lennox Head NSW 2478</div>
+    <div class="fsoc">
+      <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.6" fill="currentColor"/></svg></a>
+      <a href="tel:0493192496" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
+      <a href="mailto:rusticchar@icloud.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></a>
     </div>
-    </div>
+    <div class="fine label">Creole Chicken Takeaway &middot; Locally sourced, made in house</div>
     <div class="foot-fine">
-      <span class="fmerch">Merch coming soon &middot; <a href="https://www.instagram.com/rustic.char/" target="_blank" rel="noopener">follow @rustic.char</a> to be first in line</span>
-      <a href="https://79th.au" target="_blank" rel="noopener" class="credit">Website by <img src="assets/79th-logo.png" alt="79th" width="405" height="162" decoding="async" loading="lazy"></a>
+      <a href="https://79th.au" target="_blank" rel="noopener" class="credit label">Website by <img src="assets/79th-logo-light.png" alt="79th" width="405" height="162" decoding="async" loading="lazy"></a>
     </div>
   </div>
 </footer>
+<script src="assets/site.js"></script>
 
-<script>
-(function(){
-  // Header "Call to order" only appears once the hero (which has its own) has scrolled out of view
-  var header = document.querySelector('header'), hero = document.querySelector('.hero');
-  if(!header || !hero || !('IntersectionObserver' in window)) return;
-  var headH = header.offsetHeight;
-  header.classList.toggle('over-hero', hero.getBoundingClientRect().bottom > headH);  // set right away, no flash
-  new IntersectionObserver(function(entries){
-    header.classList.toggle('over-hero', entries[0].isIntersecting);
-  }, {rootMargin: '-' + headH + 'px 0px 0px 0px'}).observe(hero);
-})();
-(function(){
-  // Header drop-down (phones): frosted sheet + scrim, closes on link tap, scrim tap or Escape
-  var toggle = document.getElementById('navToggle');
-  var links = document.getElementById('navLinks');
-  var scrim = document.getElementById('navScrim');
-  if(!toggle || !links) return;
-  function set(open){
-    links.classList.toggle('is-open', open);
-    if(scrim) scrim.classList.toggle('is-open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
-    document.documentElement.style.overflow = open ? 'hidden' : '';
-  }
-  toggle.addEventListener('click', function(){ set(!links.classList.contains('is-open')); });
-  links.addEventListener('click', function(e){ if(e.target.closest('a')) set(false); });
-  if(scrim) scrim.addEventListener('click', function(){ set(false); });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape' && links.classList.contains('is-open')){ set(false); toggle.focus(); }
-  });
-  var mq = window.matchMedia('(max-width: 900px)');
-  if(mq.addEventListener) mq.addEventListener('change', function(){ set(false); });
-})();
-</script>
+</div>
 
-<script>
-(function(){
-  // Opening hours in Lennox Head time. Keep in sync with the hours card and the JSON-LD below.
-  var OPEN_DAYS = [2, 3, 4, 5, 6];          // Tue-Sat (0 = Sunday)
-  var OPENS = 11 * 60 + 30, CLOSES = 19 * 60; // 11:30am - 7pm, in minutes
-  var DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-  var DOW = {Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6};
-
-  function nowInLennox(){
-    try{
-      var p = {};
-      new Intl.DateTimeFormat('en-US', {timeZone:'Australia/Sydney', weekday:'short', hour:'numeric', minute:'numeric', hourCycle:'h23'})
-        .formatToParts(new Date()).forEach(function(x){ p[x.type] = x.value; });
-      return {day: DOW[p.weekday], mins: (+p.hour % 24) * 60 + (+p.minute)};
-    }catch(e){
-      var d = new Date(); return {day: d.getDay(), mins: d.getHours() * 60 + d.getMinutes()};
-    }
-  }
-
-  function status(n){
-    var openToday = OPEN_DAYS.indexOf(n.day) !== -1;
-    if(openToday && n.mins >= OPENS && n.mins < CLOSES) return {open:true, text:"We're open \u00b7 until 7pm"};
-    if(openToday && n.mins < OPENS) return {open:false, text:"We're closed \u00b7 opening 11:30am today"};
-    for(var i = 1; i <= 7; i++){
-      var d = (n.day + i) % 7;
-      if(OPEN_DAYS.indexOf(d) !== -1) return {open:false, text:"We're closed \u00b7 opening " + (i === 1 ? 'tomorrow' : DAY_NAMES[d]) + ' 11:30am'};
-    }
-  }
-
-  function render(){
-    var n = nowInLennox(), s = status(n);
-    Array.prototype.forEach.call(document.querySelectorAll('[data-open-status]'), function(el){
-      el.textContent = s.text;
-      el.classList.toggle('is-open', s.open);
-      el.classList.toggle('is-closed', !s.open);
-    });
-    Array.prototype.forEach.call(document.querySelectorAll('.hrow.today'), function(row){
-      row.classList.remove('today');
-      var pill = row.querySelector('.today-pill'); if(pill) pill.remove();
-    });
-    var today = document.querySelector('.hrow .day[data-dow~="' + n.day + '"]');
-    if(today){ today.parentNode.classList.add('today'); today.insertAdjacentHTML('beforeend', ' <span class="today-pill">Today</span>'); }
-  }
-
-  render();
-  setInterval(render, 60000);
-})();
-</script>
-
-<script>
-(function(){
-  var v = document.querySelector('.hero-video');
-  if(!v) return;
-  // two crops of the timelapse: a landscape one for computers, a portrait one for phones,
-  // so each screen gets a sharp picture and only downloads its own file
-  var tall = window.matchMedia('(max-aspect-ratio: 4/5)').matches;
-  if(tall) v.poster = v.getAttribute('data-poster-tall');
-  // keep the still poster for reduced-motion and data-saver visitors
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if(navigator.connection && navigator.connection.saveData) return;
-  v.src = v.getAttribute(tall ? 'data-tall' : 'data-wide');
-  var play = function(){ var p = v.play(); if(p && p.catch) p.catch(function(){}); };
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting) play(); else v.pause(); });
-    }).observe(v);
-  } else { play(); }
-})();
-</script>
-
-<script>
-(function(){
-  // Reviews carousel: the cards are copied either side so it loops forever in both directions.
-  // It glides slowly on its own. Hovering, touching, dragging, scrolling or pressing an arrow
-  // pauses the glide, and it picks back up a few seconds after the visitor lets go.
-  var vp = document.getElementById('revViewport'), track = document.getElementById('revTrack');
-  if(!vp || !track) return;
-  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var originals = Array.prototype.slice.call(track.children), N = originals.length;
-
-  function copySet(){
-    var frag = document.createDocumentFragment();
-    originals.forEach(function(card){
-      var c = card.cloneNode(true);
-      c.setAttribute('aria-hidden', 'true');
-      Array.prototype.forEach.call(c.querySelectorAll('button'), function(b){ b.tabIndex = -1; });
-      frag.appendChild(c);
-    });
-    return frag;
-  }
-  track.insertBefore(copySet(), track.firstChild);
-  track.appendChild(copySet());
-
-  var SPEED = 28;            // glide speed, px per second
-  var RESUME_AFTER = 3000;   // ms of calm before the glide starts again
-  var hovering = false, holding = false, visible = true, resumeAt = 0;
-  function pauseFor(ms){ resumeAt = Math.max(resumeAt, performance.now() + ms); }
-
-  // only offer "Read more" where the text is actually clamped
-  Array.prototype.forEach.call(track.querySelectorAll('.rev-text'), function(p){
-    if(p.scrollHeight > p.clientHeight + 2) p.nextElementSibling.hidden = false;
-  });
-  track.addEventListener('click', function(e){
-    var btn = e.target.closest('.rev-more'); if(!btn) return;
-    var open = btn.parentNode.classList.toggle('is-open');
-    btn.textContent = open ? 'Show less' : 'Read more';
-    pauseFor(open ? 12000 : RESUME_AFTER);  // give people time to read
-  });
-
-  var setW = 0, colW = 0, pos = 0;
-  function measure(){
-    var k = track.children;
-    setW = k[2 * N].offsetLeft - k[N].offsetLeft;  // width of one full copy of the reviews
-    colW = k[1].offsetLeft - k[0].offsetLeft;      // one card + gap
-  }
-  function wrap(x){  // hop by exactly one copy so the jump is invisible
-    if(x < setW * 0.5) return x + setW;
-    if(x > setW * 1.5) return x - setW;
-    return x;
-  }
-  function recentre(){
-    var sl = vp.scrollLeft, w = wrap(sl);
-    if(w !== sl) vp.scrollLeft = w;
-    pos = vp.scrollLeft;
-  }
-  measure();
-  // open part-way into a card, so there are reviews off both edges from the start
-  pos = setW - colW * 0.4;
-  vp.scrollLeft = pos;
-
-  function gliding(){
-    return !reduce && visible && !hovering && !holding && !document.hidden && performance.now() >= resumeAt;
-  }
-
-  // ---- the glide ----
-  var raf = null, last = 0;
-  function tick(t){
-    raf = requestAnimationFrame(tick);
-    var dt = last ? Math.min(0.05, (t - last) / 1000) : 0;
-    last = t;
-    if(!gliding()){ pos = vp.scrollLeft; return; }
-    pos = wrap(pos + SPEED * dt);   // keep a float so slow speeds stay smooth
-    vp.scrollLeft = pos;
-  }
-  function start(){ if(raf === null && !reduce){ last = 0; raf = requestAnimationFrame(tick); } }
-  function stop(){ if(raf !== null){ cancelAnimationFrame(raf); raf = null; } }
-  if('IntersectionObserver' in window){
-    new IntersectionObserver(function(entries){
-      visible = entries[0].isIntersecting;
-      if(visible) start(); else stop();
-    }).observe(vp);
-  } else { start(); }
-
-  // ---- anything the visitor does pauses it ----
-  vp.addEventListener('pointerenter', function(e){ if(e.pointerType === 'mouse') hovering = true; });
-  vp.addEventListener('pointerleave', function(e){ if(e.pointerType === 'mouse'){ hovering = false; pauseFor(1200); } });
-  vp.addEventListener('touchstart', function(){ holding = true; }, {passive:true});
-  vp.addEventListener('touchend', function(){ holding = false; pauseFor(RESUME_AFTER); }, {passive:true});
-  vp.addEventListener('touchcancel', function(){ holding = false; pauseFor(RESUME_AFTER); }, {passive:true});
-  vp.addEventListener('wheel', function(){ pauseFor(RESUME_AFTER); }, {passive:true});
-  vp.addEventListener('focusin', function(){ holding = true; });
-  vp.addEventListener('focusout', function(){ holding = false; pauseFor(RESUME_AFTER); });
-
-  // when the visitor is scrolling it themselves, keep them in the middle copy
-  var idle = null;
-  vp.addEventListener('scroll', function(){
-    if(gliding() || dragging) return;
-    var max = vp.scrollWidth - vp.clientWidth;
-    if(vp.scrollLeft < colW || vp.scrollLeft > max - colW) recentre();  // about to hit an end
-    clearTimeout(idle);
-    idle = setTimeout(recentre, 140);
-  }, {passive:true});
-
-  function step(dir){
-    pauseFor(RESUME_AFTER + 600);
-    recentre();
-    var cols = Math.max(1, Math.floor(vp.clientWidth / colW) - 1);
-    var target = Math.round((vp.scrollLeft + dir * cols * colW) / colW) * colW;  // land on a card edge
-    vp.scrollTo({left: target, behavior: reduce ? 'auto' : 'smooth'});
-  }
-  document.getElementById('revPrev').addEventListener('click', function(){ step(-1); });
-  document.getElementById('revNext').addEventListener('click', function(){ step(1); });
-
-  // mouse drag: 1:1 while held, then project the flick and land on the nearest card
-  var drag = null, dragging = false;
-  function project(v){ var d = 0.998; return (v / 1000) * d / (1 - d); } // v in px/s
-  vp.addEventListener('pointerdown', function(e){
-    if(e.pointerType !== 'mouse' || e.button !== 0 || e.target.closest('button')) return;
-    holding = true;
-    drag = {x: e.clientX, sl: vp.scrollLeft, moved: false, hist: [{x: e.clientX, t: e.timeStamp}]};
-  });
-  window.addEventListener('pointermove', function(e){
-    if(!drag) return;
-    var dx = e.clientX - drag.x;
-    if(!drag.moved){
-      if(Math.abs(dx) < 6) return;  // small threshold before committing to a drag
-      drag.moved = dragging = true;
-      vp.classList.add('is-dragging');
-    }
-    var sl = drag.sl - dx, w = wrap(sl);
-    drag.sl += w - sl;
-    vp.scrollLeft = w;
-    drag.hist.push({x: e.clientX, t: e.timeStamp});
-    while(drag.hist.length > 2 && e.timeStamp - drag.hist[0].t > 100) drag.hist.shift();
-  });
-  window.addEventListener('pointerup', function(){
-    if(!drag) return;
-    var d = drag; drag = null;
-    holding = false;
-    pauseFor(RESUME_AFTER);
-    if(!d.moved) return;
-    var a = d.hist[0], b = d.hist[d.hist.length - 1], dt = Math.max(1, b.t - a.t);
-    var v = (b.x - a.x) / dt * 1000;
-    var target = Math.round((vp.scrollLeft - project(v)) / colW) * colW;
-    vp.classList.remove('is-dragging');
-    dragging = false;
-    vp.scrollTo({left: target, behavior: reduce ? 'auto' : 'smooth'});
-    // a drag shouldn't also count as a click on whatever it ended over
-    vp.addEventListener('click', function stop(ev){ ev.stopPropagation(); ev.preventDefault(); vp.removeEventListener('click', stop, true); }, true);
-  });
-
-  var lastW = window.innerWidth;
-  window.addEventListener('resize', function(){
-    if(window.innerWidth === lastW) return;
-    lastW = window.innerWidth;
-    var col = (vp.scrollLeft - setW) / colW;
-    measure();
-    pos = vp.scrollLeft = setW + col * colW;
-  });
-})();
-</script>
-
-<script>
-(function(){
-  var section = document.getElementById('galleryScroll');
-  var pin = section && section.querySelector('.gallery-scroll-pin');
-  var track = document.getElementById('galleryTrack');
-  if(!section || !pin || !track) return;
-  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-  var STICKY_TOP_RATIO = 0.42; // "a bit higher than half" the viewport - must match .gallery-scroll-pin top:42vh
-  var PEEK = 56;               // px of each end clone left visible, so the row always bleeds off-screen
-  var MIN_SCALE = 0.77, MAX_SCALE = 1.25;  // side photos 77%, the centre one 125%
-  var SPREAD = 0.42;                        // width of the zoom bell, as a fraction of half the strip
-  var GLIDE = 0.12;                         // seconds for the strip to catch up with the page (eases, never snaps)
-
-  var stickyTop = 0, startOffset = 0, travel = 0, current = 0, target = 0, raf = null, last = 0;
-  var items = []; // {el, left, width} cached so tick() never touches layout
-
-  function measure(){
-    section.classList.add('js-pin'); // must happen before reading sizes: it changes item height via CSS
-
-    var kids = track.querySelectorAll('.gallery-scroll-item');
-    items = Array.prototype.map.call(kids, function(el){
-      return {el: el, left: el.offsetLeft, width: el.offsetWidth};
-    });
-
-    stickyTop = window.innerHeight * STICKY_TOP_RATIO;
-    pin.style.top = stickyTop + 'px';
-
-    var pinH = pin.offsetHeight;
-    var pinW = pin.clientWidth;
-    var leadIn  = items.length ? items[0].width + 14 : 0;
-    var trailOut = items.length ? items[items.length - 1].width + 14 : 0;
-    var runwayFull = Math.max(0, track.scrollWidth - pinW);
-
-    startOffset = Math.max(0, leadIn - PEEK);
-    var endOffset = Math.max(startOffset, runwayFull - Math.max(0, trailOut - PEEK));
-    travel = Math.max(0, endOffset - startOffset);
-
-    section.style.height = (pinH + travel) + 'px';
-  }
-
-  function updateVisuals(){
-    track.style.transform = 'translate3d(' + (-current).toFixed(1) + 'px,0,0)';
-    var pinW = pin.clientWidth, center = pinW / 2, half = pinW / 2;
-    for(var i = 0; i < items.length; i++){
-      var it = items[i];
-      var screenCenter = it.left + it.width / 2 - current;
-      // smooth bell curve (no sharp peak), so a photo swells and settles as it passes the middle
-      var d = half > 0 ? (screenCenter - center) / half : 1;
-      var eased = Math.exp(-(d * d) / (2 * SPREAD * SPREAD));
-      var scale = MIN_SCALE + (MAX_SCALE - MIN_SCALE) * eased;
-      it.el.style.transform = 'scale(' + scale.toFixed(3) + ')';
-      it.el.style.zIndex = Math.round(eased * 20) + 1;
-    }
-  }
-
-  function tick(t){
-    // time-based exponential glide: same feel at 60Hz or 120Hz, and it eases all the way to rest
-    var dt = last ? Math.min(0.05, (t - last) / 1000) : 1 / 60;
-    last = t;
-    current += (target - current) * (1 - Math.exp(-dt / GLIDE));
-    if(Math.abs(target - current) < 0.05) current = target;
-    updateVisuals();
-    if(current !== target){ raf = requestAnimationFrame(tick); }
-    else { raf = null; last = 0; }
-  }
-
-  function onScroll(){
-    if(travel <= 0){ target = startOffset; }
-    else{
-      var rect = section.getBoundingClientRect();
-      var progress = (stickyTop - rect.top) / travel;
-      progress = Math.max(0, Math.min(1, progress));
-      target = startOffset + progress * travel;
-    }
-    if(raf === null) raf = requestAnimationFrame(tick);
-  }
-
-  measure();
-  current = startOffset;
-  onScroll();
-  updateVisuals();
-  window.addEventListener('scroll', onScroll, {passive:true});
-  var lastW = window.innerWidth;
-  window.addEventListener('resize', function(){
-    // ignore height-only viewport churn (scrollbar toggling, mobile browser chrome) -
-    // re-measuring on that causes a resize/scroll-anchor feedback loop
-    if(window.innerWidth === lastW) return;
-    lastW = window.innerWidth;
-    measure(); onScroll();
-  });
-
-  // no image-load remeasure needed: every <img> carries width/height attributes,
-  // so the browser reserves the correct box from the intrinsic aspect ratio before
-  // decode - remeasuring after load only reintroduced a one-time layout jump.
-})();
-(function(){
-  var menu = document.getElementById('menu');
-  if(menu){
-    menu.addEventListener('mousemove', function(e){
-      var r = menu.getBoundingClientRect();
-      menu.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-      menu.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-    });
-  }
-})();
-(function(){
-  var ring = document.getElementById('wheelRing');
-  if(!ring) return;
-
-  var items = Array.prototype.slice.call(ring.querySelectorAll('.wheel-item'));
-  var dots  = Array.prototype.slice.call(document.querySelectorAll('.wheel-dot'));
-  var nameEl = document.getElementById('wheelName');
-  var tagsEl = document.getElementById('wheelTags');
-  var descEl = document.getElementById('wheelDesc');
-  var prevBtn = document.querySelector('.wheel-prev');
-  var nextBtn = document.querySelector('.wheel-next');
-
-  var data = [
-    { name:'Country Classic', tags:['DF'], desc:'Crispy chicken thigh, herb aioli, iceberg lettuce' },
-    { name:'Spicy Island', tags:['DF'], desc:'Crispy chicken thigh, chilli aioli, pickled slaw' },
-    { name:'Earth Works', tags:['V','DF'], desc:'Crunchy acras or mixed veg patty, chilli or herb aioli' },
-    { name:'Pulled Chicken & Lettuce Roll', tags:['DF'], desc:'Herb aioli and iceberg lettuce' },
-    { name:'Pulled Chicken Curry Roll', tags:['DF'], desc:'Pulled chicken, curry gravy, pickled slaw' },
-    { name:'Barbecue Chicken & Garden Salad Roll', tags:['DF'], desc:'Tossed crispy BBQ chicken, aioli, garden salad' }
-  ];
-
-  var N = items.length;
-  var currentIndex = 0;   // 0..N-1, drives which data/text is shown
-  var rotationIndex = 0;  // unbounded, drives the actual ring angle so it always spins the way it was pushed
-
-  function isMobile(){ return window.matchMedia('(max-width:720px)').matches; }
-
-  function render(){
-    var radius = isMobile() ? 82 : 118;
-    var activeScale = isMobile() ? 1.65 : 1.85;
-    var inactiveScale = 0.72;
-    var step = 360 / N;
-
-    items.forEach(function(item, i){
-      var angle = (i - rotationIndex) * step;
-      var isActive = i === currentIndex;
-      item.style.setProperty('--a', angle + 'deg');
-      item.style.setProperty('--r', (-radius) + 'px');
-      item.style.setProperty('--s', isActive ? activeScale : inactiveScale);
-      item.classList.toggle('is-active', isActive);
-    });
-
-    dots.forEach(function(dot, i){
-      dot.classList.toggle('is-active', i === currentIndex);
-    });
-
-    var d = data[currentIndex];
-    nameEl.childNodes[0].nodeValue = d.name + ' ';
-    tagsEl.innerHTML = d.tags.map(function(t){ return '<b class="badge">'+t+'</b>'; }).join('');
-    descEl.textContent = d.desc;
-  }
-
-  function step(delta){
-    rotationIndex += delta;
-    currentIndex = ((currentIndex + delta) % N + N) % N;
-    render();
-  }
-
-  function go(targetIndex){
-    var delta = targetIndex - currentIndex;
-    delta = ((delta % N) + N) % N;
-    if(delta > N / 2) delta -= N;   // shortest direction to the clicked item
-    step(delta);
-  }
-
-  prevBtn.addEventListener('click', function(){ step(-1); });
-  nextBtn.addEventListener('click', function(){ step(1); });
-
-  items.forEach(function(item, i){
-    item.addEventListener('click', function(){ go(i); });
-  });
-  dots.forEach(function(dot, i){
-    dot.addEventListener('click', function(){ go(i); });
-  });
-
-  window.addEventListener('resize', render);
-  window.addEventListener('load', render);
-  render();
-})();
-</script>
-
-<!-- The rating below is the same 5.0 / 101 reviews shown on the page itself
-     (see .reviews section) — schema has to match what a visitor actually
-     sees, not a separate number. Update both together if it ever changes. -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -1264,8 +333,7 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
   "image":"https://rusticchar.com.au/assets/hero.webp",
   "telephone":"+61493192496",
   "email":"rusticchar@icloud.com",
-  "description":"Rustic Char is where French Caribbean street food and modern Australian cuisine collide in a colourful affair. Marinated Creole chicken, fresh salads, oven-roasted vegetables and Colombo curry bowls, made in house daily in Lennox Head.",
-  "servesCuisine":["Creole","Caribbean","Australian"],
+  "servesCuisine":"Creole",
   "priceRange":"$$",
   "address":{
     "@type":"PostalAddress",
@@ -1282,5 +350,6 @@ footer{background:var(--bar); color:var(--white); padding:clamp(56px, 6vw, 88px)
   "sameAs":["https://www.instagram.com/rustic.char/","https://www.ubereats.com/au/store/rustic-char-lennox-head/xNy7I_s9UMS23CQCAHFG3Q"]
 }
 </script>
+
 </body>
 </html>
