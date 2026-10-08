@@ -170,7 +170,11 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .hero-meta{margin-top:clamp(44px, 7vh, 80px); padding-top:16px; border-top:1px solid rgba(243,235,216,0.2); display:flex; flex-wrap:nowrap; align-items:center; gap:10px 28px; font-size:0.9rem; color:rgba(243,235,216,0.88);}
 .hero-rating{display:inline-flex; align-items:center; gap:10px;}
 .hero-rating .stars{color:var(--paper); letter-spacing:2px;}
-.hero .open-status{margin:0; color:rgba(243,235,216,0.92);}
+/* open status: always two lines, "We're open" with the dot, then "until 7pm" underneath */
+.hero .open-status{margin:0; align-items:flex-start; text-align:left; color:rgba(243,235,216,0.92);}
+.hero .open-status::before{margin-top:5px;}
+.hero .os-sep{display:none;}
+.hero .os-b{display:block; margin-top:2px; color:rgba(243,235,216,0.75);}
 .hero .open-status.is-open::before{background:#7BC26A; box-shadow:0 0 0 4px rgba(123,194,106,0.25);}
 /* desktop: the whole hero is centred, across and down; the rating line stays at the bottom */
 @media(min-width:701px){
@@ -202,10 +206,7 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
   .hero-rating .stars{letter-spacing:1px;}
   .hero-rating .r-score{font-weight:600; color:var(--paper);}
   .hero-rating .r-count{grid-column:1 / -1; white-space:nowrap;}
-  .hero .open-status{align-items:flex-start; gap:8px; font-size:0.7rem; letter-spacing:0.12em;}
-  .hero .open-status::before{margin-top:5px;}
-  .hero .os-sep{display:none;}
-  .hero .os-b{display:block; margin-top:2px; color:rgba(243,235,216,0.75);}
+  .hero .open-status{gap:8px; font-size:0.7rem; letter-spacing:0.12em;}
   .hero-cta{margin-bottom:32px;} /* always a clear gap above the rating line */
 }
 /* short phones (iPhone SE size): start a little higher so the rating still fits on screen */
@@ -374,8 +375,8 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .igfeed-head h2{color:var(--ink); margin-bottom:40px;}
 .igcard{max-width:560px; margin:0 auto; text-align:left; background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 24px 48px -32px rgba(42,49,39,0.4);}
 .igprof{display:grid; grid-template-columns:auto 1fr auto; grid-template-areas:"ava info btn"; align-items:center; gap:18px; padding:20px 24px;}
-.igprof-ava{grid-area:ava; display:block; width:76px; height:76px; padding:2px; border-radius:50%; background:linear-gradient(140deg, var(--orange) 0%, #E39A3B 55%, var(--orange-btn) 100%);}
-.igprof-ava img{width:100%; height:100%; display:block; border-radius:50%; border:2px solid var(--card); background:#fff;}
+.igprof-ava{grid-area:ava; display:block; width:76px; height:76px; border-radius:50%;}
+.igprof-ava img{width:100%; height:100%; display:block; border-radius:50%; background:#fff;}
 .igprof-info{grid-area:info; min-width:0;}
 .igprof-name{font-size:1.35rem; color:var(--ink);}
 .igprof-stats{list-style:none; display:flex; gap:26px; margin-top:7px; color:var(--ink-soft); font-size:0.88rem;}
