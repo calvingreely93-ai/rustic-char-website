@@ -163,12 +163,11 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .hero-row{margin-top:clamp(26px, 3.2vw, 44px);}
 .hero h1{font-weight:600; font-size:clamp(1.3rem, 2.1vw, 1.9rem); letter-spacing:0.1em; text-transform:uppercase; line-height:1.25; color:var(--paper);}
 .hero h1 em{font-style:normal; color:#F08A3C;}
-.hero .lead{margin-top:12px; font-size:clamp(1.12rem, 1.45vw, 1.35rem); line-height:1.5; max-width:44ch; color:rgba(243,235,216,0.88);}
 .hero-cta{margin-top:clamp(26px, 3vw, 36px); display:flex; gap:12px; flex-wrap:wrap;}
 /* on the photo the main button starts orange (black would vanish into the shade) and goes black on hover */
 .hero .btn-fill{background:var(--orange-btn); border-color:var(--orange-btn);}
 .hero .btn-fill:hover{background:var(--black); border-color:var(--black);}
-.hero-meta{margin-top:clamp(44px, 7vh, 80px); padding-top:16px; border-top:1px solid rgba(243,235,216,0.2); display:flex; flex-wrap:wrap; align-items:center; gap:10px 28px; font-size:0.9rem; color:rgba(243,235,216,0.88);}
+.hero-meta{margin-top:clamp(44px, 7vh, 80px); padding-top:16px; border-top:1px solid rgba(243,235,216,0.2); display:flex; flex-wrap:nowrap; align-items:center; gap:10px 28px; font-size:0.9rem; color:rgba(243,235,216,0.88);}
 .hero-rating{display:inline-flex; align-items:center; gap:10px;}
 .hero-rating .stars{color:var(--paper); letter-spacing:2px;}
 .hero .open-status{margin:0; color:rgba(243,235,216,0.92);}
@@ -177,7 +176,6 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 @media(min-width:701px){
   .hero-inner{justify-content:center; align-items:center; text-align:center; padding-bottom:0;}
   .hero-inner > .wordmark{margin-top:auto;}
-  .hero .lead{margin-left:auto; margin-right:auto;}
   .hero-cta{justify-content:center;}
   .hero-meta{margin-top:auto; width:100%; justify-content:center; padding:16px 0 32px;}
   .hero-cta{margin-bottom:clamp(40px, 6vh, 72px);}
@@ -187,16 +185,27 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
   .hero-shade{background:linear-gradient(180deg, rgba(24,20,16,0.15) 0%, rgba(24,20,16,0.5) 24%, rgba(24,20,16,0.62) 62%, rgba(24,20,16,0.9) 100%);}
   .hero-inner{justify-content:flex-start; padding-top:calc(var(--bar) + clamp(110px, 26vh, 240px)); padding-bottom:28px;}
   .hero-meta{margin-top:auto;}
-  /* as big as the screen allows: the CHAR + palms line runs to 8px from the right edge */
-  .wordmark{font-size:min(calc((100vw - 32px) / 3.52), 8rem); line-height:0.78;}
+  /* as big as the screen allows, with the same 16px gap each side (lines up with the logo and menu button);
+     3.456em is the drawn width from the C of CHAR to the tip of the palms */
+  .wordmark{font-size:min(calc((100vw - 32px) / 3.456), 8rem); line-height:0.78; margin-left:calc(-8px - 0.035em);}
   .wordmark span{display:block;}
   .wm-palms{height:0.92em;}
   .hero-row{margin-top:24px;}
   .hero h1{font-size:1.12rem; letter-spacing:0.1em;}
-  .hero .lead{margin-top:10px; font-size:1.06rem;}
   .hero-cta{margin-top:24px; display:grid; grid-template-columns:1fr 1fr; gap:10px;}
   .hero-cta .btn{padding:0 12px; min-height:50px;}
-  .hero-meta{padding-top:14px; gap:8px 18px; font-size:0.82rem;}
+  /* rating left, open status right, each on two short lines so they always fit side by side */
+  .hero-meta{padding-top:14px; justify-content:space-between; align-items:flex-start; gap:12px; font-size:0.82rem;}
+  .hero-rating{display:grid; grid-template-columns:auto auto; justify-content:start; align-items:center; column-gap:8px; row-gap:2px;}
+  .hero-rating .u-link{display:contents;}
+  .hero-rating .u-link::after, .hero-rating .r-from{display:none;}
+  .hero-rating .stars{letter-spacing:1px;}
+  .hero-rating .r-score{font-weight:600; color:var(--paper);}
+  .hero-rating .r-count{grid-column:1 / -1; white-space:nowrap;}
+  .hero .open-status{align-items:flex-start; gap:8px; font-size:0.7rem; letter-spacing:0.12em;}
+  .hero .open-status::before{margin-top:5px;}
+  .hero .os-sep{display:none;}
+  .hero .os-b{display:block; margin-top:2px; color:rgba(243,235,216,0.75);}
   .hero-cta{margin-bottom:32px;} /* always a clear gap above the rating line */
 }
 /* short phones (iPhone SE size): start a little higher so the rating still fits on screen */
@@ -216,7 +225,9 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 @media(max-width:600px){ .band{gap:8px 22px; padding:22px 28px;} .band span + span::before{display:none;} }
 
 /* ---- photo reel: sits still; swipe, scroll sideways or use the arrows ---- */
-.reel{margin:56px 0 64px;}
+.reel{margin:72px 0 64px;}
+.reel-intro{max-width:760px; margin:0 auto 36px; padding:0 28px; text-align:center; text-wrap:balance; font-weight:500; font-size:clamp(1.2rem, 1.9vw, 1.55rem); line-height:1.4; color:var(--ink);}
+.reel-intro span{display:block;}
 .reel-track{display:flex; gap:14px; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory; scroll-padding:0 max(24px, calc((100vw - var(--wrap)) / 2 + 24px)); padding:6px max(24px, calc((100vw - var(--wrap)) / 2 + 24px)) 18px; scrollbar-width:none; cursor:grab;}
 .reel-track::-webkit-scrollbar{display:none;}
 .reel-track.is-dragging{cursor:grabbing; scroll-snap-type:none; user-select:none;}
@@ -231,6 +242,7 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .reel-link{color:var(--olive-ink);}
 @media(max-width:560px){
   .reel{margin:64px 0 72px;}
+  .reel-intro{margin-bottom:28px; font-size:1.15rem;}
   .reel-track{gap:12px; scroll-padding:0 28px; padding-left:28px; padding-right:28px;}
 }
 

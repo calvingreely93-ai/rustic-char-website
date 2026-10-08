@@ -53,7 +53,7 @@
   if(!els.length) return;
   var OPEN_DAYS = [2, 3, 4, 5, 6];            // Tue-Sat (0 = Sunday)
   var OPENS = 11 * 60 + 30, CLOSES = 19 * 60; // 11:30am - 7pm, in minutes
-  var DAY_NAMES = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   var DOW = {Sun:0, Mon:1, Tue:2, Wed:3, Thu:4, Fri:5, Sat:6};
   function now(){
     try{
@@ -67,17 +67,18 @@
   }
   function status(n){
     var openToday = OPEN_DAYS.indexOf(n.day) !== -1;
-    if(openToday && n.mins >= OPENS && n.mins < CLOSES) return {open:true, text:"We're open · until 7pm"};
-    if(openToday && n.mins < OPENS) return {open:false, text:"We're closed · opening 11:30am today"};
+    // two halves, so the hero can stack them on phones ("We're open" / "until 7pm")
+    if(openToday && n.mins >= OPENS && n.mins < CLOSES) return {open:true, a:"We're open", b:'until 7pm'};
+    if(openToday && n.mins < OPENS) return {open:false, a:"We're closed", b:'opens 11:30am'};
     for(var i = 1; i <= 7; i++){
       var d = (n.day + i) % 7;
-      if(OPEN_DAYS.indexOf(d) !== -1) return {open:false, text:"We're closed · opening " + (i === 1 ? 'tomorrow' : DAY_NAMES[d]) + ' 11:30am'};
+      if(OPEN_DAYS.indexOf(d) !== -1) return {open:false, a:"We're closed", b:'opens ' + DAY_NAMES[d] + ' 11:30am'};
     }
   }
   function render(){
     var s = status(now());
     Array.prototype.forEach.call(els, function(el){
-      el.textContent = s.text;
+      el.innerHTML = '<span class="os-text"><span>' + s.a + '</span><span class="os-sep"> · </span><span class="os-b">' + s.b + '</span></span>';
       el.classList.toggle('is-open', s.open);
       el.classList.toggle('is-closed', !s.open);
     });
