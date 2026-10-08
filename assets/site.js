@@ -12,6 +12,7 @@
   function setOpen(open){
     if(!links || !toggle) return;
     links.classList.toggle('is-open', open);
+    header.classList.toggle('menu-open', open);
     if(scrim) scrim.classList.toggle('is-open', open);
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
