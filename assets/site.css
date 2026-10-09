@@ -12,6 +12,7 @@
   --orange:#CC5500;       /* owner's burnt orange: big type, rules, stars */
   --orange-btn:#C24F00;   /* button fill (white text passes contrast) */
   --orange-ink:#A84500;   /* small orange text on light backgrounds */
+  --orange-bright:#F08A3C;/* orange on dark backgrounds: hero headline, stars */
   --paper:#F3EBD8;
   --paper-2:#F3EBD8;   /* one cream everywhere (user: the lighter one) */
   --card:#FBF8F0;
@@ -101,10 +102,14 @@ nav{position:relative; max-width:var(--wrap); min-height:var(--bar); margin:0 au
 .nav-toggle[aria-expanded="true"] span:last-child{transform:rotate(-45deg);}
 .nav-scrim{display:none;}
 /* the round logo, top left, in both the see-through and olive header */
-.nav-logo{display:block; flex-shrink:0; width:48px; height:48px; border-radius:50%; background:#fff; box-shadow:0 0 0 2px rgba(243,235,216,0.5); transition:transform .3s var(--ease), box-shadow .3s var(--ease);}
+.nav-logo{display:block; flex-shrink:0; width:48px; height:48px; border-radius:50%; background:#fff; box-shadow:0 0 0 2px rgba(243,235,216,0.5); transition:transform .3s var(--ease), box-shadow .3s var(--ease), opacity .4s var(--ease), visibility 0s;}
 .nav-logo:hover{transform:scale(1.05); box-shadow:0 0 0 2px var(--paper);}
 .nav-logo img{width:100%; height:100%; border-radius:50%; display:block;}
 @media(max-width:560px){ .nav-logo{width:42px; height:42px;} }
+/* phones: the logo is already in the hero, so the header one waits until the hero has gone */
+@media(max-width:700px){
+  header.at-hero:not(.menu-open) .nav-logo{opacity:0; visibility:hidden; transform:scale(0.85); pointer-events:none; transition:transform .3s var(--ease), opacity .25s ease, visibility 0s linear .25s;}
+}
 
 /* menu mode (phones and small screens): links live in a frosted olive sheet */
 header.menu-mode .nav-toggle{display:inline-flex;}
@@ -159,17 +164,18 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 /* the name, big, filling the page width with the same margin on both sides */
 .wordmark{font-weight:900; text-transform:uppercase; font-size:calc((min(100vw, var(--wrap)) - 48px) / 7.2); line-height:0.84; letter-spacing:-0.045em; color:var(--paper); white-space:nowrap;}
 .wordmark span{display:inline-block;}
+.wm-badge{display:none;}
 .wm-palms{display:inline-block; height:1.15em; aspect-ratio:138/163; margin-left:0.05em; vertical-align:-0.02em; background:var(--paper); -webkit-mask:url(palms.svg) center bottom / contain no-repeat; mask:url(palms.svg) center bottom / contain no-repeat;}
 .hero-row{margin-top:clamp(26px, 3.2vw, 44px);}
 .hero h1{font-weight:600; font-size:clamp(1.3rem, 2.1vw, 1.9rem); letter-spacing:0.1em; text-transform:uppercase; line-height:1.25; color:var(--paper);}
-.hero h1 em{font-style:normal; color:#F08A3C;}
+.hero h1 em{font-style:normal; color:var(--orange-bright);}
 .hero-cta{margin-top:clamp(26px, 3vw, 36px); display:flex; gap:12px; flex-wrap:wrap;}
 /* on the photo the main button starts orange (black would vanish into the shade) and goes black on hover */
 .hero .btn-fill{background:var(--orange-btn); border-color:var(--orange-btn);}
 .hero .btn-fill:hover{background:var(--black); border-color:var(--black);}
 .hero-meta{margin-top:clamp(44px, 7vh, 80px); padding-top:16px; border-top:1px solid rgba(243,235,216,0.2); display:flex; flex-wrap:nowrap; align-items:center; gap:10px 28px; font-size:0.9rem; color:rgba(243,235,216,0.88);}
 .hero-rating{display:inline-flex; align-items:center; gap:10px;}
-.hero-rating .stars{color:var(--paper); letter-spacing:2px;}
+.hero-rating .stars{color:var(--orange-bright); letter-spacing:2px;}
 /* open status: always exactly two lines, never wrapping:
    (dot) We're open
    until 7pm                                       */
@@ -193,9 +199,12 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
   .hero-meta{margin-top:auto;}
   /* as big as the screen allows, with the same 16px gap each side (lines up with the logo and menu button);
      3.456em is the drawn width from the C of CHAR to the tip of the palms */
-  .wordmark{font-size:min(calc((100vw - 32px) / 3.456), 8rem); line-height:0.78; margin-left:calc(-8px - 0.035em);}
+  /* phones: the round logo sits after CHAR instead of the palms. The name lines up with the
+     text below it (24px each side); 3.59em is the drawn width from the C to the edge of the logo */
+  .wordmark{font-size:min(calc((100vw - 48px) / 3.59), 8rem); line-height:0.78; margin-left:-0.035em;}
   .wordmark span{display:block;}
-  .wm-palms{height:0.92em;}
+  .wm-palms{display:none;}
+  .wm-badge{display:inline-block; width:0.84em; height:0.84em; margin-left:0.1em; vertical-align:-0.07em; border-radius:50%; background:#fff;}
   .hero-row{margin-top:24px;}
   .hero h1{font-size:1.12rem; letter-spacing:0.1em;}
   .hero-cta{margin-top:24px; display:grid; grid-template-columns:1fr 1fr; gap:10px;}
@@ -356,7 +365,7 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .rev-stage.is-dragging .rev{pointer-events:none;}
 .rev{scroll-snap-align:center; -webkit-user-drag:none; flex:0 0 var(--card-w); display:flex; flex-direction:column; height:212px; background:rgba(255,255,255,0.07); border:1px solid var(--line-light); border-radius:12px; padding:26px 30px; transition:background-color .3s var(--ease), border-color .3s var(--ease);}
 .rev:hover{background:rgba(255,255,255,0.11); border-color:rgba(243,235,216,0.38);}
-.rev .stars{color:var(--paper); letter-spacing:3px; font-size:0.95rem;}
+.rev .stars{color:var(--orange-bright); letter-spacing:3px; font-size:0.95rem;}
 .rev p{margin-top:12px; color:rgba(243,235,216,0.95); font-size:1rem; line-height:1.55; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:3; overflow:hidden;}
 .rev-foot{margin-top:auto; display:flex; align-items:baseline; justify-content:space-between; gap:12px;}
 .rev .who{font-weight:600;}
@@ -410,7 +419,6 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .g-title{container-type:inline-size; padding:0 24px; max-width:1600px; margin:0 auto;}
 .g-title h1{font-size:calc(100cqi / 4.4); line-height:0.82; letter-spacing:-0.045em; color:var(--ink); margin:0; white-space:nowrap;}
 .g-head .label{color:var(--orange-ink);}
-.g-head p{max-width:46ch; margin:28px auto 0; color:var(--ink-soft); font-size:1.05rem;}
 /* Pinterest-style: each photo keeps its own shape; more, narrower columns on big screens so no photo is shown bigger than it is */
 .g-grid{columns:5 180px; column-gap:14px; padding-bottom:96px;}
 .g-item{margin:0 0 14px; break-inside:avoid;}
