@@ -301,7 +301,7 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 /* ---- catering: the photos sit on a patch of the shop's floor tiles ---- */
 .catering{background:var(--paper); padding:120px 0;}
 .catering .catering-grid{display:grid; grid-template-columns:0.8fr 1.2fr; gap:clamp(40px, 6vw, 96px); align-items:center;}
-.catering .label{color:var(--orange-ink);}
+.catering .label{color:var(--orange-ink); font-size:clamp(1.2rem, 1.9vw, 1.55rem); font-weight:700; letter-spacing:0.18em;}
 .catering h2{color:var(--ink); margin:16px 0 26px;}
 .catering h2 em{display:block; font-style:normal; color:var(--orange);}
 .catering p{color:var(--ink-soft); font-size:1.18rem; line-height:1.6; max-width:42ch;}
@@ -309,8 +309,7 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .catering-list li{display:flex; align-items:baseline; gap:14px; font-weight:500; font-size:1.1rem;}
 .catering-list li::before{content:''; flex:0 0 7px; height:7px; background:var(--orange); transform:translateY(-2px) rotate(45deg);}
 .catering-cta{display:flex; gap:12px; flex-wrap:wrap;}
-.catering-art{position:relative; padding:0 0 48px 48px;}
-.catering-art::before{content:''; position:absolute; left:0; bottom:0; width:72%; height:78%; background:var(--tile) 0 0 / 32px 32px; border-radius:4px;}
+.catering-art{position:relative;}
 .catering-photos{position:relative; display:grid; grid-template-columns:1.1fr 0.9fr; grid-template-rows:repeat(2, minmax(0, 1fr)); gap:12px; aspect-ratio:1.18/1; padding:10px; background:var(--card); border-radius:12px; box-shadow:0 22px 44px rgba(42,49,39,0.18);}
 .catering-photos img{width:100%; height:100%; min-height:0; object-fit:cover; display:block; border-radius:6px;}
 .catering-photos .tall{grid-row:span 2;}
@@ -321,12 +320,12 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
   .catering p{font-size:1.05rem;}
   .catering-list{margin:28px 0 36px; gap:16px;}
   .catering-list li{font-size:1rem;}
-  .catering-art{max-width:none; padding:0 0 28px 28px;}
+  .catering-art{max-width:none;}
   .catering-photos{aspect-ratio:1/1.05;}
 }
 
 /* ---- hours + contact ---- */
-.visit{background:var(--paper-2); padding:96px 0; border-top:1px solid var(--line);}
+.visit{background:var(--paper-2); padding:96px 0;}
 .visit-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:stretch;}
 .card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:34px;}
 .card h3{font-size:2.1rem; color:var(--ink); margin-bottom:12px;}
@@ -396,6 +395,11 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .igprof-stats b{color:var(--ink); font-weight:800;}
 .igprof-btn{grid-area:btn; min-height:40px; padding:0 18px; font-size:0.76rem;}
 .igprof-btn svg{width:16px; height:16px; flex-shrink:0;}
+/* Follow: fades into Instagram's colours on hover */
+.igprof-btn{position:relative; isolation:isolate; overflow:hidden;}
+.igprof-btn::before{content:''; position:absolute; inset:-1px; z-index:-1; background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); opacity:0; transition:opacity .35s var(--ease);}
+.igprof-btn:hover, .igprof-btn:focus-visible{background:var(--black); border-color:transparent;}
+.igprof-btn:hover::before, .igprof-btn:focus-visible::before{opacity:1;}
 .igfeed-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:3px; border-top:1px solid var(--line);}
 .igfeed-grid a{position:relative; display:block; aspect-ratio:3/4; overflow:hidden; background:var(--line);}
 .igfeed-grid a::after{content:""; position:absolute; inset:0; background:rgba(28,20,14,0); transition:background-color .4s var(--ease);}
@@ -434,6 +438,7 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .g-lightbox figure{margin:0; display:flex; flex-direction:column; align-items:center;}
 .g-lightbox img{max-width:min(90vw, 640px); max-height:76vh; width:auto; height:auto; border-radius:var(--radius); display:block;}
 .g-lightbox figcaption{margin-top:16px; color:var(--paper); text-align:center;}
+.g-lightbox figcaption:empty{display:none;}
 .g-lightbox .round-btn{position:absolute; border-color:rgba(243,235,216,0.5); color:var(--paper);}
 .g-lightbox .round-btn:hover{background:var(--paper); color:var(--ink);}
 .g-close{top:18px; right:18px; font-size:1.5rem;}
@@ -443,7 +448,7 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 
 /* ---- footer ---- */
 footer{background:var(--olive); color:var(--paper); text-align:center;}
-footer .inner{padding-top:56px; padding-bottom:30px;}
+footer .inner{padding-top:56px; padding-bottom:34px;}
 .flogo{width:64px; height:64px; border-radius:50%; background:#fff; margin:0 auto 16px; display:block;}
 .ftag{font-size:1.7rem; margin-bottom:8px;}
 .faddr{font-size:0.96rem; color:rgba(243,235,216,0.88); margin-bottom:22px;}
@@ -452,8 +457,8 @@ footer .inner{padding-top:56px; padding-bottom:30px;}
 .fsoc a:hover{background:rgba(243,235,216,0.12); border-color:var(--paper);}
 .fsoc svg{width:17px; height:17px;}
 .fine{color:rgba(243,235,216,0.8); font-size:0.66rem;}
-.foot-fine{margin-top:34px; padding-top:22px; border-top:1px solid var(--line-light);}
-@media(max-width:560px){ footer .inner{padding-top:64px; padding-bottom:36px;} .fsoc{margin-bottom:28px;} .fine{line-height:1.7;} }
+.foot-fine{margin-top:34px; padding-top:33px; border-top:1px solid var(--line-light);} /* "Website by" sits midway between the line and the bottom */
+@media(max-width:560px){ footer .inner{padding-top:64px; padding-bottom:34px;} .fsoc{margin-bottom:28px;} .fine{line-height:1.7;} }
 .credit{display:inline-flex; align-items:center; gap:10px; color:rgba(243,235,216,0.85); font-size:0.66rem; transition:color .3s var(--ease);}
 .credit:hover{color:var(--paper);}
 .credit img{height:20px; width:auto; display:block;}

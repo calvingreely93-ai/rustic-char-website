@@ -259,7 +259,9 @@
   function show(i){
     index = (i + items.length) % items.length;
     var src = items[index].querySelector('img');
-    img.src = src.src; img.alt = src.alt; cap.textContent = src.alt;
+    img.src = items[index].getAttribute('data-full') || src.currentSrc || src.src; // the large, sharp copy
+    img.alt = src.alt;
+    cap.textContent = items[index].getAttribute('data-caption') || ''; // only meals have a caption
   }
   function open(i){ lastFocus = document.activeElement; show(i); box.hidden = false; document.documentElement.style.overflow = 'hidden'; box.querySelector('.g-close').focus(); }
   function close(){ box.hidden = true; document.documentElement.style.overflow = ''; if(lastFocus) lastFocus.focus(); }
