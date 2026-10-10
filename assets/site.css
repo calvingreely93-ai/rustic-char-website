@@ -196,10 +196,12 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
   .hero-shade{background:linear-gradient(180deg, rgba(24,20,16,0.15) 0%, rgba(24,20,16,0.5) 24%, rgba(24,20,16,0.62) 62%, rgba(24,20,16,0.9) 100%);}
   .hero-inner{justify-content:flex-start; padding-top:calc(var(--bar) + clamp(110px, 26vh, 240px)); padding-bottom:28px;}
   .hero-meta{margin-top:auto;}
-  /* phones: the name lines up with the text below it (24px each side);
-     3.59em is the drawn width from the C to the edge of the round logo */
-  .wordmark{font-size:min(calc((100vw - 48px) / 3.59), 8rem); line-height:0.78; margin-left:-0.035em;}
+  /* phones: RUSTIC over CHAR, with the round logo to the right of both lines, spanning from the
+     top of RUSTIC to the foot of CHAR. The lockup lines up with the text below it (24px each side);
+     W is its drawn width in em */
+  .wordmark{--W:5.009; display:flex; align-items:flex-start; font-size:min(calc((100vw - 48px) / var(--W)), 5.2rem); line-height:0.78; margin-left:-0.035em;}
   .wordmark span{display:block;}
+  .wm-mark{flex-shrink:0; width:1.49em; height:1.49em; margin:0.034em 0 0 0.2em; vertical-align:0;}
   .hero-row{margin-top:24px;}
   .hero h1{font-size:1.12rem; letter-spacing:0.1em;}
   .hero-cta{margin-top:24px; display:grid; grid-template-columns:1fr 1fr; gap:10px;}
