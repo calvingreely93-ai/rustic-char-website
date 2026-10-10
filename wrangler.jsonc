@@ -1,7 +1,7 @@
 // Cloudflare Workers config: a plain static site, no build step.
 // Every file in this folder is served as-is (minus .assetsignore);
 // _headers applies the security headers. worker.js only handles the
-// http -> https redirect for page requests.
+// redirects to one address (https, no www, /gallery) for page requests.
 {
   "name": "rustic-char-website",
   "main": "worker.js",
