@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Pages, plus the food photos, so they can show up in Google Images. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://rusticchar.com.au/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
+    <image:image><image:loc>https://rusticchar.com.au/assets/hero.webp</image:loc></image:image>
   </url>
   <url>
     <loc>https://rusticchar.com.au/gallery</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-11</lastmod>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/chicken-charred.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/burger-spicy-island.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/plate-full.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/wings.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/roll-curry-fries.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/curry-bowl.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/acras-plate.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/burger-country-classic.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/counter-salads.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/burger-earth-works.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/bowl-side.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/burgers-and-fries.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/roll-lettuce.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/roll-bbq-salad.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/ig-curry-bowl.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/ig-roll-fries-veg.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/ig-char-chicken.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/ig-grilled-plate.webp</image:loc></image:image>
+    <image:image><image:loc>https://rusticchar.com.au/assets/gallery/hd/ig-roll-box.webp</image:loc></image:image>
   </url>
 </urlset>

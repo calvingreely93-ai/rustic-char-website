@@ -5,11 +5,12 @@
 // was already going, so letting go of a drag never jolts. ----
 var Spring = (function(){
   function run(from, to, v0, onUpdate, done, response){
-    var w = 2 * Math.PI / (response || 0.42), x = from - to, v = v0 || 0, raf = null, last = null, stopped = false;
+    // The clock starts now, not on the first frame, so there's no still frame
+    // between letting go and the motion carrying on.
+    var w = 2 * Math.PI / (response || 0.42), x = from - to, v = v0 || 0, raf = null, last = performance.now(), stopped = false;
     function step(t){
       if(stopped) return;
-      if(last === null) last = t;
-      var dt = Math.min(0.064, (t - last) / 1000); last = t;
+      var dt = Math.max(0, Math.min(0.064, (t - last) / 1000)); last = t;
       var n = Math.max(1, Math.ceil(dt / 0.004)), h = dt / n;
       for(var i = 0; i < n; i++){ var a = -w * w * x - 2 * w * v; v += a * h; x += v * h; }
       if(Math.abs(x) < 0.5 && Math.abs(v) < 12){ onUpdate(to); raf = null; if(done) done(); return; }
@@ -26,7 +27,7 @@ var Spring = (function(){
   // instead of surging ahead after you let go.
   function handoff(from, to, v0, onUpdate, done){
     var d = to - from, r = 0.45;
-    if(d && v0 && (d > 0) === (v0 > 0)) r = Math.min(1.2, Math.max(0.35, Math.PI * Math.abs(d) / Math.abs(v0)));
+    if(d && v0 && (d > 0) === (v0 > 0)) r = Math.min(1.7, Math.max(0.35, Math.PI * Math.abs(d) / Math.abs(v0)));
     return run(from, to, v0, onUpdate, done, r);
   }
   // Speed of a drag over its last tenth of a second; 0 if the hand had stopped.
