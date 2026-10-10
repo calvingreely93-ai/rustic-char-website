@@ -173,7 +173,7 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
 .hero .btn-fill{background:var(--orange-btn); border-color:var(--orange-btn);}
 .hero .btn-fill:hover{background:var(--black); border-color:var(--black);}
 .hero-meta{margin-top:clamp(44px, 7vh, 80px); padding-top:16px; border-top:1px solid rgba(243,235,216,0.2); display:flex; flex-wrap:nowrap; align-items:center; gap:10px 28px; font-size:0.9rem; color:rgba(243,235,216,0.88);}
-.hero-rating{display:inline-flex; align-items:center; gap:10px;}
+.hero-rating{display:inline-flex; flex-direction:column; align-items:flex-start; gap:2px; text-align:left;} /* stars, then "See our reviews" underneath */
 .hero-rating .stars{color:var(--orange-bright); letter-spacing:2px;}
 /* open status: always exactly two lines, never wrapping:
    (dot) We're open
@@ -208,13 +208,8 @@ header.menu-mode ~ .nav-scrim.is-open{opacity:1; visibility:visible; transition:
   .hero-cta .btn{padding:0 12px; min-height:50px;}
   /* rating left, open status right, each on two short lines so they always fit side by side */
   .hero-meta{padding-top:14px; justify-content:space-between; align-items:flex-start; gap:12px; font-size:0.82rem;}
-  .hero-rating{display:grid; grid-template-columns:auto auto; justify-content:start; align-items:center; column-gap:8px; row-gap:2px;}
-  .hero-rating .u-link{display:contents;}
-  .hero-rating .u-link::after, .hero-rating .r-from{display:none;}
-  .hero-rating .stars{letter-spacing:1px;}
-  .hero-rating .r-score{font-weight:600; color:var(--paper);}
   .hero-rating{min-width:0;}
-  .hero-rating .r-count{grid-column:1 / -1;}
+  .hero-rating .stars{letter-spacing:1px;}
   .hero .open-status{font-size:0.7rem; letter-spacing:0.12em;}
   .hero .open-status::before{margin-right:8px;}
   .hero-cta{margin-bottom:32px;} /* always a clear gap above the rating line */
