@@ -6,3 +6,4 @@ wrangler.jsonc
 *.backup*
 .DS_Store
 worker.js
+counter.js

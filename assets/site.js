@@ -277,3 +277,36 @@
     else if(e.key === 'ArrowRight') show(index + 1);
   });
 })();
+
+// ---- visit counter for the 79th client portal. No cookies, nothing personal sent ----
+// Opening the site with #nocount stops this device being counted (#count undoes it),
+// so the owner's own visits don't inflate the numbers.
+(function(){
+  try{
+    if(location.hash === '#nocount'){ localStorage.setItem('rc-stats-ignore', '1'); history.replaceState(null, '', location.pathname + location.search); }
+    else if(location.hash === '#count'){ localStorage.removeItem('rc-stats-ignore'); history.replaceState(null, '', location.pathname + location.search); }
+    if(localStorage.getItem('rc-stats-ignore') === '1') return;
+  }catch(e){}
+  if(navigator.webdriver || !navigator.sendBeacon) return;
+  var path = location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+  function send(type){
+    try{ navigator.sendBeacon('/api/hit', JSON.stringify({t: type, p: path, r: type === 'view' ? document.referrer : ''})); }catch(e){}
+  }
+  send('view');
+  document.addEventListener('click', function(e){
+    if(e.defaultPrevented) return;
+    var a = e.target.closest && e.target.closest('a[href]');
+    if(!a) return;
+    var h = a.getAttribute('href');
+    var t = /^tel:/.test(h) ? 'call'
+      : /ubereats\.com/.test(h) ? 'ubereats'
+      : /maps\/dir/.test(h) ? 'directions'
+      : /writereview/.test(h) ? 'review'
+      : /^mailto:.*subject=Catering/i.test(h) ? 'catering'
+      : /^mailto:/.test(h) ? 'email'
+      : /instagram\.com/.test(h) ? 'instagram'
+      : /google\.com\/maps\/search/.test(h) ? 'reviews'
+      : null;
+    if(t) send(t);
+  });
+})();
