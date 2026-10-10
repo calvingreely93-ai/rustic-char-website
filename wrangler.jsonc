@@ -1,7 +1,8 @@
 // Cloudflare Workers config: a plain static site, no build step.
 // Every file in this folder is served as-is (minus .assetsignore);
-// _headers applies the security headers. worker.js only handles the
-// redirects to one address (https, no www, /gallery) for page requests.
+// _headers applies the security headers. worker.js handles the redirects
+// to one address (https, no www, /gallery) for page requests, and the visit
+// counter at /api/hit.
 {
   "name": "rustic-char-website",
   "main": "worker.js",
@@ -11,5 +12,10 @@
     "binding": "ASSETS",
     "not_found_handling": "404-page",
     "run_worker_first": ["/", "/index.html", "/gallery", "/gallery.html", "/googlef342a07d479bb6c5.html", "/api/*"]
-  }
+  },
+  // The 79th client portal's shared database: the visit counter (counter.js)
+  // writes this site's visits to it, and 79th.au/portal reads them back.
+  "d1_databases": [
+    { "binding": "STATS_DB", "database_name": "79th-portal", "database_id": "92085acf-8170-434e-a8c4-661318649497" }
+  ]
 }
