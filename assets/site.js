@@ -289,8 +289,10 @@
   }catch(e){}
   if(navigator.webdriver || !navigator.sendBeacon) return;
   var path = location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '');
+  // iPads say they're Macs; a "Mac" with a touch screen is an iPad.
+  var tablet = /Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1;
   function send(type){
-    try{ navigator.sendBeacon('/api/hit', JSON.stringify({t: type, p: path, r: type === 'view' ? document.referrer : ''})); }catch(e){}
+    try{ navigator.sendBeacon('/api/hit', JSON.stringify({t: type, p: path, r: type === 'view' ? document.referrer : '', d: tablet ? 'Tablet' : ''})); }catch(e){}
   }
   send('view');
   document.addEventListener('click', function(e){

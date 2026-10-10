@@ -63,8 +63,10 @@ function sourceOf(referrer, ua) {
   return host.slice(0, 60);
 }
 
-function deviceOf(ua) {
-  if (/iPad|Tablet|Android(?!.*Mobile)/i.test(ua)) return "Tablet";
+// iPads ask for the desktop version of sites, so their browser says "Macintosh".
+// site.js spots them (a Mac with a touch screen) and says so in the note.
+function deviceOf(ua, hint) {
+  if (hint === "Tablet" || /iPad|Tablet|Android(?!.*Mobile)/i.test(ua)) return "Tablet";
   if (/Mobi|iPhone|Android/i.test(ua)) return "Phone";
   return "Computer";
 }
@@ -119,7 +121,7 @@ export async function handleHit(request, env) {
     const visitor = (await sha256([await saltFor(db, day), SITE, ip, ua].join("|"))).slice(0, 16);
     const source = type === "view" ? sourceOf(String(body.r || ""), ua) : null;
     await db.prepare("INSERT INTO events (ts, day, site, type, path, source, device, place, visitor) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")
-      .bind(Date.now(), day, SITE, type, path, source, deviceOf(ua), placeOf(request.cf), visitor).run();
+      .bind(Date.now(), day, SITE, type, path, source, deviceOf(ua, body.d), placeOf(request.cf), visitor).run();
   } catch (e) {
     console.error("visit counter failed", e);
   }
